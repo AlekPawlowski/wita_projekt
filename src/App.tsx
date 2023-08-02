@@ -6,7 +6,7 @@ import { supabase } from './config'
 function App() {
     const login = async () => {
         let { data, error } = await supabase.auth.signUp({
-            email: 'tes@test.pl',
+            email: 'testpr@test.pl',
             password: 'bJKjndajEHiDdnlKoMnm'
         })
         console.log(data, error);
@@ -17,9 +17,16 @@ function App() {
             ])
 
         console.log(dataSend, errorSend);
-        
+
+    }
+    const getData = async () => {
+        let { data: estate, error } = await supabase
+            .from('estate')
+            .select('*')
+        console.log("as", estate, error)
     }
 
+    getData();
 
     return (
         <Fragment>

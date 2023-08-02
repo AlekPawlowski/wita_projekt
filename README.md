@@ -2,10 +2,13 @@
 This project is project to hold all data about real estate and with details of every single estate.
 Project goal is to increase my front end skills.
 
-## Current todos:
+## Current todos and questions:
     - choose ui for a project
     - choose style preproccesor for a project
     - what will happen when user is unlogged, what he can see then?
+    - how to get all users from database
+    - how to mark failure description and pictures in data base (can be 0 or can be 100 so how to manage that)
+    - generic correct types for supabase
 
 ## Technologies:
 1. supbase to hold all user/estates (database)
