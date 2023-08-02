@@ -3,24 +3,20 @@ This project is project to hold all data about real estate and with details of e
 Project goal is to increase my front end skills.
 
 ## Current todos and questions:
-    - choose ui for a project
-    - choose style preproccesor for a project
-    - what will happen when user is unlogged, what he can see then?
-    - how to get all users from database
+    - choose ui for a project (chakra/material for preproccesor to)
+    - what will happen when user is unlogged, what he can see then? - move to log in user
+    - how to get all users from database - figure it out
     - how to mark failure description and pictures in data base (can be 0 or can be 100 so how to manage that)
-    - generic correct types for supabase
+    - generic correct types for supabase 
     - organize supbase
 ## Technologies:
 1. supbase to hold all user/estates (database)
 2. Front  
     - react + ts
     - redux/context api to hold state
-    - tanstack query
-    - scss to style (or styled components )?
     - vite as a builder
-    - axios for api calls
-    - formik
-    - yup schema
+    - react hook form
+    - zoda
     - to find: some react picture carousel
 
 ## requirements
@@ -30,7 +26,11 @@ Project goal is to increase my front end skills.
 4. Failures (assignment to real estate and failure description)
 5. Employees (revenue, number of properties, etc.)
 6. Three categories of access: Employee/Administrator/Accounting
+7. add push notification if something need qdditional intrest (ex. contract period runinnig out for a month or some failure was added)
 
+## additional requiremnets 
+- add payment history to single esate or if there is some 
+- history of contractors ( those guys who rent )
 
 ## sites :
 ### all ( admin / employee / account ):
@@ -42,7 +42,7 @@ Project goal is to increase my front end skills.
 
 - esatate details
     1. estate details (owner, adress, avibility, price, door code, segment)
-    2. contract menagment (contract period, for admin and acconting: attaching scans, admin: owner)
+    2. contract menagment (contract start, contract period, for admin and acconting: attaching scans, admin: owner)
     3. payment enagment (admin & acconting)
     4. failure description
     5. emploee who is a keeper (admin and account)
@@ -53,6 +53,7 @@ Project goal is to increase my front end skills.
 
 - form to add failures
     - description of a failure
+    - status of a failure (solved, to do, in progress)
 
 - form to add estate (fields in list):
     - name
@@ -60,15 +61,16 @@ Project goal is to increase my front end skills.
     - keeper (default unassigned)
     - owner (name and phone number)
     - market price
+    - contract start data (optional)
+    - contract period (optional)
     - avibility
-    - door code
+    - door code (optional)
     - failure description (optional)
     - rent price (revanue)
     - fixed cost with payment deadlines:
         1. rent 
         2. electricity
         3. tax
-    - keeper name
 
 - form to change properties details (basicly copy of add estate but with filled form properties)
 
@@ -78,12 +80,14 @@ Project goal is to increase my front end skills.
     - number of properties that employee maintain
     - detail link button
     - form to sort by alphabetical order or by number of properties
+    - sort by name and surname
 - employee details:
     - awatar
     - employee name
     - salary
     - revanue
     - number of properties 
+    - contract
 
 ## admin
 - list of all estate owners:
@@ -106,7 +110,8 @@ Project goal is to increase my front end skills.
         - access 
         - details link
         - update user details
-        - delete user
+        - block user
+        - edit user
     - sort users by acces level or name
     - add new user button (go to add new user form)
 
@@ -119,7 +124,7 @@ Project goal is to increase my front end skills.
 
 
 ## scenarios:
-    - if user gonna be removed by admin, then all estates that belongs to that account change the keeper status to unassign and needs to be assing manualy in every estate details
+    - if user gonna be blocked by admin, then all estates that belongs to that account change the keeper status to unassign and needs to be assing manualy in every estate details - to think about it
     - there is a possibility to add only failures, so there is no need to change whole state each time when some flaw will happen
 
 ## summary:

@@ -13,17 +13,17 @@ function App() {
         const { dataSend, errorSend } = await supabase
             .from('app_users')
             .insert([
-                { id: data.user?.id },
+                { id: data.user?.id, email: 'testpr@test.pl' },
             ])
 
         console.log(dataSend, errorSend);
 
     }
     const getData = async () => {
-        let { data: estate, error } = await supabase
-            .from('estate')
+        let { data, error } = await supabase
+            .from('app_users')
             .select('*')
-        console.log("as", estate, error)
+        console.log("as", data, error)
     }
 
     getData();
