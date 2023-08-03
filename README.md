@@ -31,6 +31,8 @@ Project goal is to increase my front end skills.
 ## additional requiremnets 
 - add payment history to single esate or if there is some 
 - history of contractors ( those guys who rent )
+- add dark mode
+- pagination at all list sites
 
 ## sites :
 ### all ( admin / employee / account ):
