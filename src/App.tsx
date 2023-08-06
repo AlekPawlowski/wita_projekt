@@ -1,36 +1,13 @@
-import { Fragment, useState } from 'react'
-import './App.css'
-import { supabase } from './config'
-
+import { Fragment } from 'react'
+import { LogInForm } from './components/Forms/LoginForm'
+import { Center } from '@chakra-ui/react'
 
 function App() {
-    const login = async () => {
-        let { data, error } = await supabase.auth.signUp({
-            email: 'admin@admin.pl',
-            password: 'bJKjndajEHiDdnlKoMnm'
-        })
-        console.log(data, error);
-        const { dataSend, errorSend } = await supabase
-            .from('app_users')
-            .insert([
-                { id: data.user?.id, email: 'admin@admin.pl' },
-            ])
-
-        console.log(dataSend, errorSend);
-
-    }
-    const getData = async () => {
-        let { data, error } = await supabase
-            .from('app_users')
-            .select('*')
-        console.log("as", data, error)
-    }
-
-    getData();
-
     return (
         <Fragment>
-            <button onClick={login}>login</button>
+            <Center minH="100vh">
+                <LogInForm />
+            </Center>
         </Fragment>
     )
 }

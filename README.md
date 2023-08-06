@@ -3,12 +3,8 @@ This project is project to hold all data about real estate and with details of e
 Project goal is to increase my front end skills.
 
 ## Current todos and questions:
-    - choose ui for a project (chakra/material for preproccesor to)
-    - what will happen when user is unlogged, what he can see then? - move to log in user
-    - how to get all users from database - figure it out
-    - how to mark failure description and pictures in data base (can be 0 or can be 100 so how to manage that)
-    - generic correct types for supabase 
-    - organize supbase
+    - confgi for chakra ui, how to set them, cause now they dont work?
+
 ## Technologies:
 1. supbase to hold all user/estates (database)
 2. Front  
@@ -16,7 +12,7 @@ Project goal is to increase my front end skills.
     - redux/context api to hold state
     - vite as a builder
     - react hook form
-    - zoda
+    - zoda for form scheme 
     - to find: some react picture carousel
 
 ## requirements
