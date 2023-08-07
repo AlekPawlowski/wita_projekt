@@ -4,6 +4,9 @@ Project goal is to increase my front end skills.
 
 ## Current todos and questions:
     - confgi for chakra ui, how to set them, cause now they dont work?
+    - is there a simpler way 
+    - is this safe to show what database and mail was called? (redux/userSlice)
+    - supbase with types
 
 ## Technologies:
 1. supbase to hold all user/estates (database)

@@ -1,13 +1,16 @@
 import { Fragment } from 'react'
-import { LogInForm } from './components/Forms/LoginForm'
-import { Center } from '@chakra-ui/react'
+import { LogInScreen } from './components/Screens/LogInScreen'
+import { useSelector } from "react-redux"
+import { HomePage } from './components/Screens/HomePage';
 
 function App() {
+    const state = useSelector((state) => state.user.user);
+    const { isUserLoggedIn } = state;
     return (
         <Fragment>
-            <Center minH="100vh">
-                <LogInForm />
-            </Center>
+            {
+                isUserLoggedIn ? <HomePage /> : <LogInScreen />
+            }
         </Fragment>
     )
 }
