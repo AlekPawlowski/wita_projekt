@@ -1,10 +1,26 @@
 import { Fragment } from "react"
-import { useSelector } from "react-redux"
+import { accesLevel } from "../../interfaces/IAppusers";
+import { Box, Button, Center, Container, Flex, Heading } from "@chakra-ui/react";
+import { LogOutElement } from "../Forms/LogOutForm";
 
-export const HomePage = () => {
-    const state = useSelector((state) => state.user.user);
-    const {userAccessLevel, userEmail} = state;
+type IHomePage = {
+    email: string;
+    accesLevel: accesLevel;
+}
+
+export const HomePage = ({email, accesLevel}: IHomePage) => {
     return <Fragment>
-        Hello {userEmail}, you are logged in as {userAccessLevel}
+        {/* log out module */}
+        <Container maxW="1140">
+            <Flex mt="10" direction={"column"} gap="10" >
+                <Flex justify="space-between" align="center">
+                    <Heading 
+                        as="h1" 
+                        size="sm"
+                    >Hello {accesLevel}! {email}</Heading>
+                    <LogOutElement />
+                </Flex>
+            </Flex>
+        </Container>
     </Fragment>
 }

@@ -1,16 +1,11 @@
 import { Fragment } from 'react'
-import { LogInScreen } from './components/Screens/LogInScreen'
-import { useSelector } from "react-redux"
-import { HomePage } from './components/Screens/HomePage';
+import { RoutesComponent } from './Routes/Routes';
 
 function App() {
-    const state = useSelector((state) => state.user.user);
-    const { isUserLoggedIn } = state;
+
     return (
         <Fragment>
-            {
-                isUserLoggedIn ? <HomePage /> : <LogInScreen />
-            }
+            <RoutesComponent />
         </Fragment>
     )
 }

@@ -1,19 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "./";
-import type {User, Session} from '@supabase/supabase-js';
-import { supabase } from "../config";
-import { IAppUsers } from "../interfaces/IAppusers";
+import { accesLevel } from "../interfaces/IAppusers";
 
-type  IUserPayload = {
-    user: User,
-    session: Session
-}
-
-type ILoggedUser = {
+export type ILoggedUser = {
     isUserLoggedIn: boolean;
     userEmail: string;
-    userAccessLevel: string;
+    userAccessLevel: accesLevel | "";
 }
 type IUserState = {
     user: ILoggedUser
@@ -42,31 +35,18 @@ const userSlice = createSlice({
     name: 'user',
     initialState: initializeState,
     reducers: {
-        logInUser: (state, action: PayloadAction<IUserPayload>) => {
+        logInUser: (state, action: PayloadAction<ILoggedUser>) => {
             // get specific user data and add him to global state and to localstorage
-            const email = action.payload.user.email;
-            const loggedUserData = async () => {
-                const { data: app_users } = await supabase
-                    .from('app_users')
-                    .select("*")
-                    .eq('email', email)
-
-                // set logged user
-                if(app_users){
-                    const {email,acces_level} = app_users[0];
-                    const user: ILoggedUser = {
-                        isUserLoggedIn: true,
-                        userEmail: email,
-                        userAccessLevel: acces_level
-                    };
-                    localStorage.setItem('loggedUser', JSON.stringify(user));
-                }
-            }
-            loggedUserData()
+            state.user = action.payload;
+            localStorage.setItem('loggedUser', JSON.stringify(action.payload));
+        },
+        logOutUser: (state, action: PayloadAction<ILoggedUser>) => {
+            state.user = action.payload;
+            localStorage.removeItem("loggedUser");
         }
     }
 })
 
-export const {logInUser}  = userSlice.actions;
+export const {logInUser, logOutUser}  = userSlice.actions;
 export const selectOrder = (state: RootState) => state.user.user;
 export default userSlice.reducer;

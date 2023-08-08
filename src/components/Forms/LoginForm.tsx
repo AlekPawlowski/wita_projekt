@@ -10,14 +10,13 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { logInSchema, ILogInSchema } from '../../schema/fomrSchema'
 import { zodResolver } from "@hookform/resolvers/zod";
 import { supabase } from '../../config';
-import { useDispatch, useSelector } from "react-redux";
-import { logInUser } from '../../redux/userSlice';
+import { useDispatch } from "react-redux";
+import { ILoggedUser, logInUser } from '../../redux/userSlice';
 
 
 export const LogInForm = () => {
     const dispatch = useDispatch();
-    const state = useSelector((state) => state.user.users);
-    console.log(state);
+
     const {
         register,
         handleSubmit,
@@ -27,14 +26,35 @@ export const LogInForm = () => {
     });
 
     const onSubmit: SubmitHandler<ILogInSchema> = async (data) => {
-        console.log("submit", data);
+
+        // correction of architecture, is this ok to have this here or meaby it should be in
+        // some other directory like "supabaseCalls" or something like this
+
         // if correct data, then send request to supabase of user log in data
         const { data: logData, error } = await supabase.auth.signInWithPassword({
             email: data.email,
             password: data.password
         });
+
         if (!error) {
-            dispatch(logInUser(logData));
+            // get specific user data and add him to global state and to localstorage
+            const email = logData.user.email;
+
+            const { data: app_users } = await supabase
+                .from('app_users')
+                .select("*")
+                .eq('email', email)
+            // set logged user
+            if (app_users) {
+                const { email, acces_level } = app_users[0];
+                const user: ILoggedUser = {
+                    isUserLoggedIn: true,
+                    userEmail: email,
+                    userAccessLevel: acces_level
+                };
+                dispatch(logInUser(user));
+            }
+
         } else {
             throw new Error(`Log in failed ${error}`)
         }
