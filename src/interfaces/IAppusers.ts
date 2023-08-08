@@ -8,8 +8,8 @@
  */
 export interface IAppUsers {
     id?: number | string;
-    username: string;
-    accesLevel: accesLevel;
+    user_name: string;
+    acces_level: accesLevel;
     email: string;
     phoneNumber: number;
     location: string;

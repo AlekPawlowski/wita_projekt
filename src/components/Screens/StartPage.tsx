@@ -4,13 +4,13 @@ import { LogInScreen } from "./LogInScreen";
 import { HomePage } from "./HomePage";
 
 export const StartPage = () => {
-    const state = useSelector((state) => state.user.user);
-    const {isUserLoggedIn, userAccessLevel, userEmail} = state;
+    const state = useSelector((state) => state.user);
+    const {isUserLoggedIn, user} = state;
 
-    return <Fragment>
+return <Fragment>
         {
             isUserLoggedIn ? 
-                <HomePage email={userEmail} accesLevel={userAccessLevel} />
+                <HomePage user={user} />
                 : <LogInScreen />
         }
     </Fragment>

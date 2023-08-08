@@ -14,8 +14,7 @@ export const LogOutElement = () =>{
         } 
         const emptyUser:ILoggedUser = {
             isUserLoggedIn: false,
-            userEmail: "",
-            userAccessLevel: "",
+            user: null
         }
         dispatch(logOutUser(emptyUser))
     }
