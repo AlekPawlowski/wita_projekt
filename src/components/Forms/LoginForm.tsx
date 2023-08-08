@@ -36,6 +36,7 @@ export const LogInForm = () => {
             email: data.email,
             password: data.password
         });
+        console.log("log data", logData)
 
         if (!error) {
             // get specific user data and add him to global state and to localstorage
@@ -48,12 +49,15 @@ export const LogInForm = () => {
             
             
             // set logged user
-            if (app_users) {
+            console.log("app user",app_users)
+            if (app_users && app_users?.length > 0) {
                 const user: ILoggedUser = {
                     user: app_users[0] as IAppUsers,
                     isUserLoggedIn: true,
                 };
                 dispatch(logInUser(user));
+            } else {
+                throw new Error (`Brak pasującego adresu email, sprawdź w bazie ${email}`)
             }
 
         } else {

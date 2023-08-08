@@ -7,6 +7,7 @@ Project goal is to increase my front end skills.
     - is there a simpler way 
     - is this safe to show what database and mail was called? (redux/userSlice)
     - supbase with types
+    - how to properly split request to database for each access level, should be one for all or meaby each user ask for diffrent elements?
 
 ## Technologies:
 1. supbase to hold all user/estates (database)

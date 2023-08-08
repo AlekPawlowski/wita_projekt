@@ -1,12 +1,12 @@
-import { Fragment } from 'react'
 import { RoutesComponent } from './Routes/Routes';
+import { Container } from '@chakra-ui/react';
 
 function App() {
 
     return (
-        <Fragment>
+        <Container maxW="1140">
             <RoutesComponent />
-        </Fragment>
+        </Container>
     )
 }
 
