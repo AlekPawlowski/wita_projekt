@@ -1,28 +1,24 @@
 import { Fragment, useEffect, useState } from "react"
-import { AddEstateForm } from "../Forms/AddEstateForm"
-import { Box, Button } from "@chakra-ui/react"
-import { Link } from "react-router-dom"
-import { supabase } from "../../config"
+import { supabase } from "../../config";
+import { IEstate } from "../../interfaces/Iestate";
 
 export const EstateList = () => {
-    // const [estates, setEstates] = useState<any[] | null>(null);
+    const [estates, setEstates] = useState<IEstate[] | null>(null);
+    const getEstates = async () => {
+        const { data: incomeEstate, error } = await supabase
+            .from('estate')
+            .select('*');
+        setEstates(incomeEstate);
+    };
+    useEffect(() => {
+        getEstates()
+    }, [])
 
-
-    // const { data: incomeEstate, error } = await supabase
-    //     .from('estate')
-    //     .select('*');
-
-    // useEffect(() => {
-    //     if(incomeEstate) setEstates(incomeEstate);
-    // }, [incomeEstate])
-
+    if (!estates) return null;
     return <Fragment>
-        List of all estates
-        {/* add estate form */}
-        <Box>
-            <Button>
-                <Link to="/estates/addEstate">Add Estate Form</Link>
-            </Button>
-        </Box>
+        {estates.map((estate) => {
+            const { id, name, owner_name } = estate;
+            return <p key={id}>{name} {owner_name}</p>
+        })}
     </Fragment>
 }

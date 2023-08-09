@@ -6,7 +6,7 @@ Project goal is to increase my front end skills.
     - confgi for chakra ui, how to set them, cause now they dont work?
     - is there a simpler way 
     - is this safe to show what database and mail was called? (redux/userSlice)
-    - supbase with types
+    - supbase add types
     - how to properly split request to database for each access level, should be one for all or meaby each user ask for diffrent elements?
     - create schema based on interface, is it possible to make such correlation? (ex. addEstateSchema based on IEstate interface)
     - meaby some more efficent way to create form fields? (AddEstateForm.tsx)
