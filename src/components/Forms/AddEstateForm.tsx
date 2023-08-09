@@ -43,6 +43,8 @@ export const AddEstateForm = () => {
                 ])
                 .select()
             console.log(error, newEstate)
+            alert("Correctly added to datebase");
+            navigate(-1)
         }
 
     }
