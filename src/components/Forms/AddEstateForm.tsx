@@ -5,7 +5,7 @@ import { Text, Button, Checkbox, Flex, FormControl, FormErrorMessage, Input, Inp
 import { useNavigate } from "react-router-dom"
 import { supabase } from "../../config"
 /**
- * to refactor all numbers to string
+ * to refactor all numbers to string (convert them in zod?)
  */
 export const AddEstateForm = () => {
     const navigate = useNavigate();
