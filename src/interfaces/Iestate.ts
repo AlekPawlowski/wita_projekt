@@ -23,9 +23,9 @@ export interface IEstate {
     id?: number 
     adress: string | null
     avibility: boolean | null
-    contract_end_date: string | null
-    contract_start_data: string | null
-    door_code: string | null
+    contract_end_date?: string | null
+    contract_start_data?: string | null
+    door_code?: string | null
     keeper_name: string | null
     market_price: number | null
     name: string | null

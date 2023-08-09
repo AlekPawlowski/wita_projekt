@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import { IAppUsers } from "../../interfaces/IAppusers";
-import { Flex, Heading } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
 import { LogOutElement } from "../Forms/LogOutForm";
 import { Link } from "react-router-dom"
 
@@ -21,16 +21,18 @@ export const HomePage = ({ user }: IHomePage) => {
                 >Hello {user_name}, your current acces level is: {acces_level}</Heading>
                 <LogOutElement />
             </Flex>
-            <Flex>
+            <Flex gap="10" align="center">
                 {/* List of all estates link -> all */}
-                <Link to="/estates">Estate list</Link>
+                <Button>
+                    <Link to="/estates">Estate list</Link>
+                </Button>
                 {/* List of all user/employess -> account/admin */}
                 {acces_level !== "employee"
-                    ? <Link to="employee">Employee list</Link>
+                    ? <Button><Link to="employee">Employee list</Link></Button>
                     : null}
                 {/* list of all owners -> admin */}
                 {acces_level === "admin"
-                    ? <Link to="owners">Owners List</Link>
+                    ? <Button><Link to="owners">Owners List</Link></Button>
                     : null
                 }
             </Flex>
