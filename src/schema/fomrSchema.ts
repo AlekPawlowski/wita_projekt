@@ -17,7 +17,9 @@ export const addEstateSchema = z.object({
     contract_start_data: z.string().optional().or(z.literal(null)),
     door_code: z.string().optional().or(z.literal(null)),
     keeper_name: z.string(),
-    market_price: z.number(),
+    market_price: z.string().refine((arg)=>Number(arg)>1,{
+        message: ""
+    }),
     name: z.string(),
     owner_name: z.string().min(3, {message: "Provide correct name"}),
     owner_phone_number: z.string().min(9).max(14),

@@ -4,7 +4,9 @@ import { IAddEstateSchema, addEstateSchema } from "../../schema/fomrSchema"
 import { Text, Button, Checkbox, Flex, FormControl, FormErrorMessage, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import { supabase } from "../../config"
-
+/**
+ * to refactor all numbers to string
+ */
 export const AddEstateForm = () => {
     const navigate = useNavigate();
     const {
@@ -118,9 +120,10 @@ export const AddEstateForm = () => {
                 <Input
                     id="market_price"
                     type="number"
+                    step={1}
                     placeholder="market price"
-                    {...register('market_price', { setValueAs: (v) => v === "" ? undefined : parseInt(v, 10), })}
-                />
+                    {...register('market_price')}
+                    />
             </InputGroup>
             <FormErrorMessage>
                 {errors.market_price && errors.market_price.message}
