@@ -13,9 +13,9 @@ export type ILogInSchema = z.infer<typeof logInSchema>;
 export const addEstateSchema = z.object({
     adress: z.string().min(5, {message: "minimum 5 letters"}),
     avibility: z.boolean(),
-    contract_end_date: z.string().optional().or(z.literal('')),
-    contract_start_data: z.string().optional().or(z.literal('')),
-    door_code: z.string().optional().or(z.literal('')),
+    contract_end_date: z.string().optional().or(z.literal(null)),
+    contract_start_data: z.string().optional().or(z.literal(null)),
+    door_code: z.string().optional().or(z.literal(null)),
     keeper_name: z.string(),
     market_price: z.number(),
     name: z.string(),
