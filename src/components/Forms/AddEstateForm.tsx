@@ -3,6 +3,7 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form"
 import { IAddEstateSchema, addEstateSchema } from "../../schema/fomrSchema"
 import { Text, Button, Checkbox, Flex, FormControl, FormErrorMessage, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
+import { supabase } from "../../config"
 
 export const AddEstateForm = () => {
     const navigate = useNavigate();
@@ -15,8 +16,17 @@ export const AddEstateForm = () => {
         resolver: zodResolver(addEstateSchema)
     })
 
-    const onSubmit: SubmitHandler<IAddEstateSchema> = (data) => {
-        console.log("send data", data)
+    const onSubmit: SubmitHandler<IAddEstateSchema> = async (formData) => {
+        // create new record in supabase
+        console.log("send data", formData);
+        const { data, error } = await supabase
+            .from('estate')
+            .insert([
+                {...formData}
+            ])
+            .select()
+
+        console.log(data, error);
     }
 
     const submitForm = () => {
@@ -250,29 +260,31 @@ export const AddEstateForm = () => {
 
         <FormControl isInvalid={true}>
             <InputGroup size='sm'>
-                <InputLeftAddon children='Tax bill deadline' />
+                <InputLeftAddon children='Contract end data' />
                 <Input
-                    id="tax_deadline"
-                    placeholder="tax deadline day of the month"
-                    {...register('tax_deadline')}
+                    id="contract_end_date"
+                    placeholder="Contract end data"
+                    type="date"
+                    {...register('contract_end_date')}
                 />
             </InputGroup>
             <FormErrorMessage>
-                {errors.tax_deadline && errors.tax_deadline.message}
+                {errors.contract_end_date && errors.contract_end_date.message}
             </FormErrorMessage>
         </FormControl>
-        
+
         <FormControl isInvalid={true}>
             <InputGroup size='sm'>
-                <InputLeftAddon children='Tax bill deadline' />
+                <InputLeftAddon children='Contract start data' />
                 <Input
-                    id="tax_deadline"
-                    placeholder="tax deadline day of the month"
-                    {...register('tax_deadline')}
+                    id="contract_start_data"
+                    placeholder="Contract end data"
+                    type="date"
+                    {...register('contract_start_data')}
                 />
             </InputGroup>
             <FormErrorMessage>
-                {errors.tax_deadline && errors.tax_deadline.message}
+                {errors.contract_start_data && errors.contract_start_data.message}
             </FormErrorMessage>
         </FormControl>
 

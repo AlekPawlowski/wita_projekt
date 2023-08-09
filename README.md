@@ -9,6 +9,7 @@ Project goal is to increase my front end skills.
     - supbase with types
     - how to properly split request to database for each access level, should be one for all or meaby each user ask for diffrent elements?
     - create schema based on interface, is it possible to make such correlation? (ex. addEstateSchema based on IEstate interface)
+    - meaby some more efficent way to create form fields? (AddEstateForm.tsx)
     
 ## Technologies:
 1. supbase to hold all user/estates (database)
