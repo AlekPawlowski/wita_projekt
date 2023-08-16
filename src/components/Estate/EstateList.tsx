@@ -8,7 +8,11 @@ export const EstateList = () => {
         const { data: incomeEstate, error } = await supabase
             .from('estate')
             .select('*');
-        setEstates(incomeEstate);
+        if(!error){
+            setEstates(incomeEstate);
+        }else{
+            throw new Error(`Error in getting estates ${error}`)
+        }
     };
     useEffect(() => {
         getEstates()
