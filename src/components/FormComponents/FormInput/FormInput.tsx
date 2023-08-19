@@ -1,6 +1,6 @@
 import { FormControl, InputGroup, InputLeftAddon, Input, FormErrorMessage } from "@chakra-ui/react";
 import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
-import { IAddEstateSchema } from "../../schema/fomrSchema";
+import { IAddEstateSchema } from "../../../schema/fomrSchema";
 
 interface FormInput {
     inputName: Path<IAddEstateSchema>;
@@ -11,7 +11,7 @@ interface FormInput {
 }
 
 export const FormInput = ({ inputName: name, label, errors, register, value = "" }: FormInput) => {
-    return <FormControl isInvalid={true}>
+    return <FormControl isInvalid={!!errors[name]?.message}>
         <InputGroup size='sm'>
             <InputLeftAddon children={label} />
             <Input

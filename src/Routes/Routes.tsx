@@ -3,7 +3,7 @@ import { StartPage } from "../components/StartPage/StartPage"
 import { EstatesComponent } from "../components/Estate/EstatesComponent"
 import { EmployeeList } from "../components/Employee/EmployeeList"
 import { OwnerList } from "../components/Owners/OwnersList"
-import { AddEstateForm } from "../components/Forms/AddEstateForm"
+import { AddEstateForm } from "../components/FormComponents/AddEstateForm/AddEstateForm"
 
 export const RoutesComponent = () => {
     return <Routes>

@@ -1,12 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { IAddEstateSchema, addEstateSchema } from "../../schema/fomrSchema"
+import { IAddEstateSchema, addEstateSchema } from "../../../schema/fomrSchema"
 import { Button, Flex } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
-import { supabase } from "../../config"
-import { FormInput } from "./FormInput"
-import { estateFormFields } from "../Estate/EstatesFormFields"
-import { FormCheckbox } from "./FormCheckbox"
+import { supabase } from "../../../config"
+import { FormInput } from "../FormInput/FormInput"
+import { estateFormFields } from "../../Estate/EstatesFormFields"
+import { FormCheckbox } from "../FormCheckbox/FormCheckbox"
 /**
  * to refactor all numbers to string (convert them in zod?)
  */

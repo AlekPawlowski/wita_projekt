@@ -7,13 +7,12 @@ import {
     Input
 } from '@chakra-ui/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { logInSchema, ILogInSchema } from '../../schema/fomrSchema'
+import { logInSchema, ILogInSchema } from '../../../schema/fomrSchema'
 import { zodResolver } from "@hookform/resolvers/zod";
-import { supabase } from '../../config';
+import { supabase } from '../../../config';
 import { useDispatch } from "react-redux";
-import { ILoggedUser, logInUser } from '../../redux/userSlice';
-import { IAppUsers } from '../../interfaces/IAppusers';
-
+import { ILoggedUser, logInUser } from '../../../redux/userSlice';
+import { IAppUsers } from '../../../interfaces/IAppusers';
 
 export const LogInForm = () => {
     const dispatch = useDispatch();
@@ -69,7 +68,7 @@ export const LogInForm = () => {
         {/* QUESTION: how to remove error from here? */}
         <Flex gap="3" direction="column">
 
-            <FormControl isInvalid={errors.email}>
+            <FormControl isInvalid={!!errors.email?.message}>
                 <Input
                     id='email'
                     placeholder='email'
@@ -79,7 +78,7 @@ export const LogInForm = () => {
                     {errors.email && errors.email.message}
                 </FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={errors.password}>
+            <FormControl isInvalid={!!errors.password?.message}>
                 <Input
                     id='password'
                     placeholder='password'

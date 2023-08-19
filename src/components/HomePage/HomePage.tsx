@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { IAppUsers } from "../../interfaces/IAppusers";
 import { Button, Flex, Heading } from "@chakra-ui/react";
-import { LogOutElement } from "../Forms/LogOutForm";
+import { LogOutElement } from "../FormComponents/LogOutForm/LogOutForm";
 import { Link } from "react-router-dom"
 
 type IHomePage = {

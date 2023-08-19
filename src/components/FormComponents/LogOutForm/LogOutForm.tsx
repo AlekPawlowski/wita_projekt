@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react"
 import { Fragment } from "react"
-import { supabase } from "../../config"
-import { ILoggedUser, logOutUser } from "../../redux/userSlice"
+import { supabase } from "../../../config"
+import { ILoggedUser, logOutUser } from "../../../redux/userSlice"
 import { useDispatch } from "react-redux"
 
 export const LogOutElement = () =>{

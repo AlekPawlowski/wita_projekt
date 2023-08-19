@@ -1,5 +1,5 @@
 import { Text, Center, Flex, Heading } from "@chakra-ui/react"
-import { LogInForm } from "../Forms/LoginForm"
+import { LogInForm } from "../FormComponents/LogInForm/LoginForm"
 
 export const LogInScreen = () => {
     return <>

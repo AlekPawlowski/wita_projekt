@@ -3,13 +3,7 @@ This project is project to hold all data about real estate and with details of e
 Project goal is to increase my front end skills.
 
 ## Current todos and questions:
-    - confgi for chakra ui, how to set them, cause now they dont work?
-    - is there a simpler way 
-    - is this safe to show what database and mail was called? (redux/userSlice)
-    - supbase add types
-    - how to properly split request to database for each access level, should be one for all or meaby each user ask for diffrent elements?
-    - create schema based on interface, is it possible to make such correlation? (ex. addEstateSchema based on IEstate interface)
-    - meaby some more efficent way to create form fields? (AddEstateForm.tsx)
+    - formSchema.ts, refineFunc and transformToNumber args types
     
 ## Technologies:
 1. supbase to hold all user/estates (database)
@@ -182,6 +176,3 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
-
-

@@ -11,7 +11,7 @@ export interface IAppUsers {
     user_name: string;
     acces_level: accesLevel;
     email: string;
-    phoneNumber: number;
+    phone_number: number;
     location: string;
 }
 

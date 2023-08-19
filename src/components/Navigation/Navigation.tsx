@@ -1,4 +1,4 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
+import { Button, Menu } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 
 export const Navigation = () => {

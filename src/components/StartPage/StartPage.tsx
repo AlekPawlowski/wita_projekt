@@ -2,14 +2,17 @@ import { Fragment } from "react"
 import { useSelector } from "react-redux"
 import { LogInScreen } from "../LogIn/LogInScreen";
 import { HomePage } from "../HomePage/HomePage";
+import { RootState } from "../../redux";
 
 export const StartPage = () => {
-    const state = useSelector((state) => state.user);
-    const {isUserLoggedIn, user} = state;
+    const state = useSelector((state: RootState) => state.user);
+    const { isUserLoggedIn, user } = state;
 
-return <Fragment>
+    if (!user) return null;
+
+    return <Fragment>
         {
-            isUserLoggedIn ? 
+            isUserLoggedIn ?
                 <HomePage user={user} />
                 : <LogInScreen />
         }
