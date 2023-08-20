@@ -1,21 +1,17 @@
 import { Fragment, useEffect, useState } from "react"
 import { supabase } from "../../config";
 import { IEstate } from "../../interfaces/Iestate";
+import { getAllEstates } from "../../supabaseCall/getEstates";
 
 export const EstateList = () => {
     const [estates, setEstates] = useState<IEstate[] | null>(null);
-    const getEstates = async () => {
-        const { data: incomeEstate, error } = await supabase
-            .from('estate')
-            .select('*');
-        if(!error){
-            setEstates(incomeEstate);
-        }else{
-            throw new Error(`Error in getting estates ${error}`)
-        }
-    };
+
     useEffect(() => {
-        getEstates()
+        const callEstates = async() => {
+            const estatesList = await getAllEstates();
+            setEstates(estatesList);
+        }
+        callEstates();
     }, [])
 
     if (!estates) return null;

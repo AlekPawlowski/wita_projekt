@@ -2,9 +2,12 @@
 This project is project to hold all data about real estate and with details of every single estate.
 Project goal is to increase my front end skills.
 
-## Current todos and questions:
-    - formSchema.ts, refineFunc and transformToNumber args types
-    
+## Current todos (to remember):
+-  add to estate form possibility to add new images
+
+## current questions:
+- formSchema.ts, refineFunc and transformToNumber args types
+
 ## Technologies:
 1. supbase to hold all user/estates (database)
 2. Front  
