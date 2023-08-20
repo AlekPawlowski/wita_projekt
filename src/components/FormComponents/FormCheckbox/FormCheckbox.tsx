@@ -1,6 +1,6 @@
 import { Text, FormControl, Checkbox, FormErrorMessage } from "@chakra-ui/react"
 import { Control, Controller, FieldErrors, Path } from "react-hook-form"
-import { IAddEstateSchema } from "../../../schema/fomrSchema";
+import { IAddEstateSchema } from "../../../schema/formSchema";
 
 interface IFormCheckbox {
     inputName: Path<IAddEstateSchema>;

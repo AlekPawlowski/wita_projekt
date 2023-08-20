@@ -1,5 +1,5 @@
 import { Path } from "react-hook-form";
-import { IAddEstateSchema } from "../../schema/fomrSchema";
+import { IAddEstateSchema } from "../../schema/formSchema";
 
 type UsersFormField = {
     label: string;

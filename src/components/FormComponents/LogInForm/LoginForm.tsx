@@ -7,7 +7,7 @@ import {
     Input
 } from '@chakra-ui/react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { logInSchema, ILogInSchema } from '../../../schema/fomrSchema'
+import { logInSchema, ILogInSchema } from '../../../schema/formSchema'
 import { zodResolver } from "@hookform/resolvers/zod";
 import { supabase } from '../../../config';
 import { useDispatch } from "react-redux";

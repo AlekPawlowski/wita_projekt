@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { IAddEstateSchema, addEstateSchema } from "../../../schema/fomrSchema"
+import { IAddEstateSchema, addEstateSchema } from "../../../schema/formSchema"
 import { Button, Flex } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import { supabase } from "../../../config"
