@@ -3,10 +3,14 @@ This project is project to hold all data about real estate and with details of e
 Project goal is to increase my front end skills.
 
 ## Current todos (to remember):
+- add context and tanstact!!!
 -  add to estate form possibility to add new images
-
+- make from Estate LIst generic element
+- add first img to estate list
+- add Loading component
 ## current questions:
 - formSchema.ts, refineFunc and transformToNumber args types
+- where put estateFormFields element (my target would be another folder in src directory that calls formFieldsDetails)
 
 ## Technologies:
 1. supbase to hold all user/estates (database)
@@ -36,7 +40,7 @@ Project goal is to increase my front end skills.
 ## sites :
 ### all ( admin / employee / account ):
 - list of estates (admin and account see all, employee see only those that he manages):
-    1. estate main details ( avatar, name, adress, avibility, segment ) with details button
+    1. estate main details ( avatar, name, adress, avibility ) with details button
     2. form to sort properties by name (alphabetical order, segment order, avibility order)
     3. form to look by name (input name and sort)
     4. form to sort by employee (admin user)

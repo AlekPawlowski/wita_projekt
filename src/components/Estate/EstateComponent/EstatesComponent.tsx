@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { Box, Button } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
-import { EstateList } from "./EstateList"
+import { EstateList } from "../EstateList/EstateList"
 
 export const EstatesComponent = () => {
     return <Fragment>

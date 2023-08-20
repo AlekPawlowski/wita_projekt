@@ -1,5 +1,8 @@
 import { supabase } from "../config";
 
+/**
+ * Get all estates from db and return them, if error then render error in console
+ */
 export const getAllEstates = async () => {
     const { data: incomeEstate, error } = await supabase
         .from('estate')
