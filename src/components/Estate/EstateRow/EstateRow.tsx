@@ -17,7 +17,7 @@ export const EstateRow = ({estateDetails}: IEstateRow) => {
         <Td>{adress}</Td>
         <Td>{avibility ? "Available" : "Unavail"}</Td>
         <Td>
-            <LinkButton link={`/estates/${id}?${ESTATE_PARAM_NAME}=${id}`}/>
+            <LinkButton link={`/estates/${id}?${ESTATE_PARAM_NAME}=${id}`}>Details</LinkButton>
         </Td>
     </Tr>
 }
