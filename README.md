@@ -11,6 +11,7 @@ Project goal is to increase my front end skills.
 ## current questions:
 - formSchema.ts, refineFunc and transformToNumber args types
 - where put estateFormFields element (my target would be another folder in src directory that calls formFieldsDetails)
+- pass props in HOC ( customCardHeader add paddings or margins wihtout knowing)
 
 ## Technologies:
 1. supbase to hold all user/estates (database)
