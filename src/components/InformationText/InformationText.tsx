@@ -1,5 +1,5 @@
 import { Stack, Text } from "@chakra-ui/react";
-import { IInfoText } from "../../interfaces/IInfoText";
+import { IInfoText } from "../../interfaces/InfoText/IInfoText";
 
 /**
  * Infromation text is an component that show information with 

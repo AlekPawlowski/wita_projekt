@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react"
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { ESTATE_PARAM_NAME } from "../../../config";
+import { useSearchParams } from "react-router-dom";
+import { ESTATE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config";
 import { IEstate } from "../../../interfaces/Iestate";
 import { getSingleEstate } from "../../../supabaseCall/getSingleEstate";
 import { Box, Card, CardBody, CardHeader, Divider, Grid, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import { InformationText } from "../../InformationText/InformationText";
 import { LinkButton } from "../../Buttons/LinkButton";
-import { CustomCardHeader } from "../../CardElements/CustomCardHeader";
-import { EstateFinancialDetails } from "../EstateCardDetails/EstateCardDetails";
-
-const MARGIN_SPACE = 5;
+import { CreateMainInfo } from "./CreateEstateDetailsData";
+import { InformationBoxWithHeader } from "../../InformationBoxWithHeader/InformationBoxWithHeader";
 
 export const EstateDetails = () => {
     const [searchParams] = useSearchParams();
@@ -23,10 +21,10 @@ export const EstateDetails = () => {
         estateDetails();
     }, [])
     if (!estate) return <p>Loading data...</p>
-    const { id, adress, avibility, contract_end_date, contract_start_data, door_code, keeper_name, market_price, name, owner_name, owner_phone_number, revanue, electricity_amount, electricity_deadline, rent_amount, rent_deadline, tax_amount, tax_deadline } = estate;
-    
+    const { name } = estate;
+    const estateMainInformation = CreateMainInfo(estate);
     return <Box w="100%">
-        <Box mt={Math.round(MARGIN_SPACE/2)}>
+        <Box mt={Math.round(MARGIN_SPACE / 2)}>
             <LinkButton link={"/estates"}>Back to estate list</LinkButton>
         </Box>
         <Card
@@ -43,24 +41,18 @@ export const EstateDetails = () => {
             />
             <Stack w="100%">
                 <CardBody>
-                    <Heading size='md'>Property '<Text as="span">{name}</Text>' main information:</Heading>
-                    <Divider mb={MARGIN_SPACE} mt={MARGIN_SPACE}/>
-                    <Grid 
-                        templateColumns="repeat(3, 1fr)"
-                        gap={3}
-                    >
-                        <InformationText describe="Keeper" value={keeper_name}/>
-                        <InformationText describe="Owner" value={owner_name}/>
-                        <InformationText describe="Contract end" value={contract_end_date as string}/>
-                        <InformationText describe="Avibility" value={avibility ? "Avail" : "Unavail"}/>
-                        <InformationText describe="Current revanue" value={`${revanue} PLN`}/>
-                    </Grid>
+                    <InformationBoxWithHeader
+                        header={`Property '${name}' main information:`}
+                        content={estateMainInformation}
+                    />
                 </CardBody>
             </Stack>
         </Card>
-        <Divider mb={MARGIN_SPACE} mt={MARGIN_SPACE}/>
-        <Card>
-            <CustomCardHeader>Detail information</CustomCardHeader>
+        <Divider mb={MARGIN_SPACE} mt={MARGIN_SPACE} />
+        <Card variant='outline'>
+            <CardHeader mb={0}>
+                <Heading as="h2" size="md">Details info</Heading>
+            </CardHeader>
             <CardBody>
             </CardBody>
         </Card>

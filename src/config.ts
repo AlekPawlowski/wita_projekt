@@ -13,3 +13,10 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 // Global variables
 export const ESTATE_PARAM_NAME = "estateId";
 
+export const GRID_CONFIG = {
+    gap: 3, // numerical from chakra
+    elementsInRow: "repeat(3, 1fr)" // 3 elements per row by default
+}
+
+export const MARGIN_SPACE = 5;
+
