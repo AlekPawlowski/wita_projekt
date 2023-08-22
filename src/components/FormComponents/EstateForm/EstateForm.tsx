@@ -1,17 +1,28 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { IAddEstateSchema, addEstateSchema } from "../../../schema/formSchema"
-import { Button, Flex } from "@chakra-ui/react"
+import { Button, Flex, Heading } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import { FormInput } from "../FormInput/FormInput"
 import { estateFormFields } from "../../../formFieldsDetails/EstatesFormFields"
 import { FormCheckbox } from "../FormCheckbox/FormCheckbox"
-import { createNewEstateOwner } from "../../../supabaseCall/createNewEstateOwner"
+import { createNewEstate } from "../../../supabaseCall/estates/createNewEstate"
+import { MARGIN_SPACE } from "../../../config"
+import { IEstate } from "../../../interfaces/Iestate"
+import { updateEstate } from "../../../supabaseCall/estates/updateEstate"
 /**
  * to refactor all numbers to string (convert them in zod?)
  */
-
-export const AddEstateForm = () => {
+interface IEstateForm {
+    formName: string
+    data?: IEstate | null | undefined
+}
+/**
+ * Estate form to add or change estate data
+ * @param formName -> name for the form
+ * @param data -> data of the form, if null go with empty
+ */
+export const EstateForm = ({ formName, data = null }: IEstateForm) => {
     const navigate = useNavigate();
     const {
         register,
@@ -23,21 +34,26 @@ export const AddEstateForm = () => {
     })
 
     const onSubmit: SubmitHandler<IAddEstateSchema> = async (formData) => {
-        createNewEstateOwner(formData, navigate(-1));
+        if (!data) {
+            // create new user
+            createNewEstate(formData, navigate(-1));
+        } else {
+            updateEstate(formData);
+        }
     }
 
     const submitForm = () => {
         console.log(errors);
-
     }
+
     return <form onSubmit={handleSubmit(onSubmit)}>
-        form to add new estate
+        <Heading as="h1" size="md" my={MARGIN_SPACE}>{formName}</Heading>
         {
             estateFormFields.map(field => {
-                if(field.inputName == "avibility") {
-                    return <FormCheckbox key={field.label} {...field} errors={errors} control={control}/>
+                if (field.inputName == "avibility") {
+                    return <FormCheckbox key={field.label} {...field} errors={errors} control={control} />
                 }
-                return <FormInput key={field.label} {...field} register={register} errors={errors}/>
+                return <FormInput key={field.label} {...field} register={register} errors={errors} />
             })
         }
 
@@ -50,3 +66,4 @@ export const AddEstateForm = () => {
         </Flex>
     </form >
 }
+

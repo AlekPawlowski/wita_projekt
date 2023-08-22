@@ -1,7 +1,7 @@
-import { supabase } from "../config"
-import { IAddEstateSchema } from "../schema/formSchema"
+import { supabase } from "../../config"
+import { IAddEstateSchema } from "../../schema/formSchema"
 
-export const createNewEstateOwner = async (dataToAdd: IAddEstateSchema, cb: void) => {
+export const createNewEstate = async (dataToAdd: IAddEstateSchema, cb: void) => {
     /**
         * first check if estate that we wanna add exist in db
         * by given params:

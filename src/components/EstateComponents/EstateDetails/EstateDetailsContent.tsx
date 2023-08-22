@@ -1,5 +1,5 @@
-import { Image, Card, Stack, CardBody, Divider, CardHeader, Heading, Box } from "@chakra-ui/react";
-import { MARGIN_SPACE } from "../../../config";
+import { Image, Card, Stack, CardBody, Divider, CardHeader, Heading, Box, Flex } from "@chakra-ui/react";
+import { ESTATE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config";
 import { IEstate } from "../../../interfaces/Iestate";
 import { LinkButton } from "../../Common/Buttons/LinkButton";
 import { InformationBoxWithHeader } from "../../Common/InformationBoxWithHeader/InformationBoxWithHeader";
@@ -9,15 +9,19 @@ interface IEstateDetailsContent {
     estate: IEstate;
 }
 export const EstateDetailsContent = ({estate}: IEstateDetailsContent) => {
-    const { name } = estate;
+    const { name, id } = estate;
     const estateMainInformation = CreateMainInformation(estate);
     const generalInformation = CreateGeneralInformation(estate);
     const financialInformation = CreateFinancialInformation(estate);
 
     return <Box w="100%">
-        <Box mt={Math.round(MARGIN_SPACE / 2)}>
+        <Flex 
+            mt={Math.round(MARGIN_SPACE / 2)} 
+            gap={GRID_CONFIG.gap}
+        > 
             <LinkButton link={"/estates"}>Back to estate list</LinkButton>
-        </Box>
+            <LinkButton link={`/estates/editestate?${ESTATE_PARAM_NAME}=${id}`}>Edit estate</LinkButton>
+        </Flex>
         <Card
             direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
@@ -57,5 +61,6 @@ export const EstateDetailsContent = ({estate}: IEstateDetailsContent) => {
                 />
             </CardBody>
         </Card>
+        
     </Box>
 }

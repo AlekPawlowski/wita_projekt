@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { IEstate } from "../../../interfaces/Iestate";
-import { getAllEstates } from "../../../supabaseCall/getAllEstates";
+import { getAllEstates } from "../../../supabaseCall/estates/getAllEstates";
 import { EstateRow } from "../EstateRow/EstateRow";
 import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import { useEstateContext } from "../../../Context/EstateContext";

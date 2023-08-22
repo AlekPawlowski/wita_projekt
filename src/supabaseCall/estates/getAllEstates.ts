@@ -1,4 +1,4 @@
-import { supabase } from "../config";
+import { supabase } from "../../config";
 
 /**
  * Get all estates from db and return them, if error then render error in console

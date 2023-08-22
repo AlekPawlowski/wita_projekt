@@ -1,7 +1,7 @@
 import { createContext } from "react"
 import { IEstate } from "../interfaces/Iestate"
 import { ESTATE_QUERY } from "../config";
-import { getAllEstates } from "../supabaseCall/getAllEstates";
+import { getAllEstates } from "../supabaseCall/estates/getAllEstates";
 import { useQuery } from "@tanstack/react-query"
 import { getSafeContext } from "./getSafeContext";
 
