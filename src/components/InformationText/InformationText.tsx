@@ -1,5 +1,5 @@
 import { Stack, Text } from "@chakra-ui/react";
-import { IInfoText } from "../../interfaces/InfoText/IInfoText";
+import { IInformationText } from "../../interfaces/IInformationText/IInformationText";
 
 /**
  * Infromation text is an component that show information with 
@@ -8,7 +8,7 @@ import { IInfoText } from "../../interfaces/InfoText/IInfoText";
  * @param {string} describe -> description for value
  * @param {string} value -> value
  */
-export const InformationText = ({describe, value}: IInfoText) => {
+export const InformationText = ({describe, value}: IInformationText) => {
     return <Stack gap={0}>
         <Text fontSize='sm' display="inline">{describe}:</Text>
         <Text fontSize='md' display="inline" as="b">{value ? value : `No info about ${describe}`}</Text>

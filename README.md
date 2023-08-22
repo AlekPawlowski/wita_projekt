@@ -3,16 +3,18 @@ This project is project to hold all data about real estate and with details of e
 Project goal is to increase my front end skills.
 
 ## Current todos (to remember):
-- add context and tanstact!!!
--  add to estate form possibility to add new images
+- add to estate form possibility to add new images
 - make from Estate LIst generic element
 - add first img to estate list
 - add Loading component
+
 ## current questions:
 - formSchema.ts, refineFunc and transformToNumber args types
 - where put estateFormFields element (my target would be another folder in src directory that calls formFieldsDetails)
 - help with add images to db
-- pass props in HOC ( customCardHeader add paddings or margins wihtout knowing)
+- pass props in HOC without knowing what the props will be and how to type them
+- Component CreateEstateDetailsData -> how to describe correctly create function to satisfay and check if elements inside was added properly
+
 
 ## Technologies:
 1. supbase to hold all user/estates (database)

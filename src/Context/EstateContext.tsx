@@ -3,7 +3,7 @@ import { IEstate } from "../interfaces/Iestate"
 import { ESTATE_QUERY } from "../config";
 import { getAllEstates } from "../supabaseCall/getAllEstates";
 import { useQuery } from "@tanstack/react-query"
-import { getSafeContext } from "./getSageContext";
+import { getSafeContext } from "./getSafeContext";
 
 type IEstateContext = {
     estates: IEstate[] | undefined;

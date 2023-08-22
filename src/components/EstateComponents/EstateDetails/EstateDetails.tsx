@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom";
-import { ESTATE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config";
+import { ESTATE_PARAM_NAME, MARGIN_SPACE } from "../../../config";
 import { IEstate } from "../../../interfaces/Iestate";
 import { getSingleEstate } from "../../../supabaseCall/getSingleEstate";
-import { Box, Card, CardBody, CardHeader, Divider, Grid, Heading, Image, Stack, Text } from "@chakra-ui/react";
-import { InformationText } from "../../InformationText/InformationText";
+import { Box, Card, CardBody, CardHeader, Divider, Heading, Image, Stack } from "@chakra-ui/react";
 import { LinkButton } from "../../Buttons/LinkButton";
-import { CreateMainInfo } from "./CreateEstateDetailsData";
 import { InformationBoxWithHeader } from "../../InformationBoxWithHeader/InformationBoxWithHeader";
+import { CreateMainInformation, CreateGeneralInformation, CreateFinancialInformation } from "./CreateEstateDetailsData";
 
 export const EstateDetails = () => {
     const [searchParams] = useSearchParams();
@@ -21,8 +20,12 @@ export const EstateDetails = () => {
         estateDetails();
     }, [])
     if (!estate) return <p>Loading data...</p>
+    // create elements for grid
     const { name } = estate;
-    const estateMainInformation = CreateMainInfo(estate);
+    const estateMainInformation = CreateMainInformation(estate);
+    const generalInformation = CreateGeneralInformation(estate);
+    const financialInformation = CreateFinancialInformation(estate);
+
     return <Box w="100%">
         <Box mt={Math.round(MARGIN_SPACE / 2)}>
             <LinkButton link={"/estates"}>Back to estate list</LinkButton>
@@ -51,9 +54,19 @@ export const EstateDetails = () => {
         <Divider mb={MARGIN_SPACE} mt={MARGIN_SPACE} />
         <Card variant='outline'>
             <CardHeader mb={0}>
-                <Heading as="h2" size="md">Details info</Heading>
+                <Heading as="h2" size="lg">Details info</Heading>
             </CardHeader>
+            <Divider mb={MARGIN_SPACE} />
             <CardBody>
+                <InformationBoxWithHeader 
+                    header={"General information about estate:"}
+                    content={generalInformation}
+                />
+                <Divider mb={MARGIN_SPACE} mt={MARGIN_SPACE} />
+                <InformationBoxWithHeader
+                    header={"Financial information of the estate:"}
+                    content={financialInformation}
+                />
             </CardBody>
         </Card>
     </Box>
