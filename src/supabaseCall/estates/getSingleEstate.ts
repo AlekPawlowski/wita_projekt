@@ -1,4 +1,4 @@
-import { supabase } from "../config";
+import { supabase } from "../../config";
 
 export const getSingleEstate = async (id: string) => { 
     const { data: estate, error } = await supabase

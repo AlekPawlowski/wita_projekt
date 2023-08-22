@@ -21,5 +21,3 @@ export const GRID_CONFIG = {
 export const MARGIN_SPACE = 5;
 
 export const ESTATE_QUERY = "estate"
-
-export const RESTART_ERROR = "Something went terribliy wrong, just restart";
