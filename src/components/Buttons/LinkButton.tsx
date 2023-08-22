@@ -1,4 +1,5 @@
-import { Button, Link } from "@chakra-ui/react"
+import { Button } from "@chakra-ui/react"
+import { Link } from "react-router-dom";
 
 type ILinkButton = {
     link: string;
@@ -7,6 +8,6 @@ type ILinkButton = {
 
 export const LinkButton = ({link, children}: ILinkButton) => {
     return <Button>
-        <Link href={link}>{children}</Link>
+        <Link to={link}>{children}</Link>
     </Button>
 }
