@@ -3,7 +3,7 @@ import { Box, Button } from "@chakra-ui/react"
 import { Link } from "react-router-dom"
 import { EstateList } from "../EstateList/EstateList"
 
-export const EstatesComponent = () => {
+export const EstateMainView = () => {
     return <Fragment>
         List of all estates
         {/* add estate form */}
