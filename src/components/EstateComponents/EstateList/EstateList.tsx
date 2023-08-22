@@ -1,21 +1,13 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { IEstate } from "../../../interfaces/Iestate";
 import { getAllEstates } from "../../../supabaseCall/getAllEstates";
 import { EstateRow } from "../EstateRow/EstateRow";
 import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import { useEstateContext } from "../../../Context/EstateContext";
 
 // make from this one generic List
 export const EstateList = () => {
-    const [estates, setEstates] = useState<IEstate[] | null>(null);
-
-    useEffect(() => {
-        const callEstates = async () => {
-            const estatesList = await getAllEstates();
-            setEstates(estatesList);
-        }
-        callEstates();
-    }, [])
-
+    const { estates } = useEstateContext();
     if (!estates) return null;
     return <TableContainer>
         <Table>

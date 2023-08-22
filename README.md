@@ -23,6 +23,7 @@ Project goal is to increase my front end skills.
     - react hook form
     - zoda for form scheme 
     - to find: some react picture carousel
+    - tanstack query
 
 ## requirements
 1. adding and cataloging estate (owner, is rent / sold, adreess, price, door code, avibility, segment (ex. premimum, low budget))

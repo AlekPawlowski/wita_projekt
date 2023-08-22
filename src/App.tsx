@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { RoutesComponent } from './Routes/Routes';
-import { Box, Button, Container } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import { Navigation } from './components/Navigation/Navigation';
-import { Link } from 'react-router-dom';
+import { RootState } from './redux';
 
 function App() {
-    const state = useSelector((state) => state.user);
+    const state = useSelector((state: RootState) => state.user);
     const {isUserLoggedIn} = state;
     
     return (

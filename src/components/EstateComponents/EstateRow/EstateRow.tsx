@@ -8,7 +8,6 @@ type IEstateRow = {
 }
 
 export const EstateRow = ({estateDetails}: IEstateRow) => {
-    console.log(estateDetails);
     const {id, name, adress, avibility} = estateDetails;
     return <Tr>
         <Td>Image</Td>

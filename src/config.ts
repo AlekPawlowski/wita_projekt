@@ -20,3 +20,4 @@ export const GRID_CONFIG = {
 
 export const MARGIN_SPACE = 5;
 
+export const ESTATE_QUERY = "estate"
