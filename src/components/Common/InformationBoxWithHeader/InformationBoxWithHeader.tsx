@@ -1,7 +1,7 @@
 import { Box, Divider, Grid, Heading, Stack } from "@chakra-ui/react"
-import { IInformationBoxWithHeader } from "../../interfaces/IInformationBoxWithHeader/IInformationBoxWithHeader";
-import { GRID_CONFIG, MARGIN_SPACE } from "../../config";
 import { InformationText } from "../InformationText/InformationText";
+import { MARGIN_SPACE, GRID_CONFIG } from "../../../config";
+import { IInformationBoxWithHeader } from "../../../interfaces/IInformationBoxWithHeader/IInformationBoxWithHeader";
 
 export function InformationBoxWithHeader({ header, content }: IInformationBoxWithHeader) {
     return <Box>

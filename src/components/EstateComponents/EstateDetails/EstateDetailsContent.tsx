@@ -1,26 +1,14 @@
-import { useEffect, useState } from "react"
-import { useSearchParams } from "react-router-dom";
-import { ESTATE_PARAM_NAME, MARGIN_SPACE } from "../../../config";
+import { Image, Card, Stack, CardBody, Divider, CardHeader, Heading, Box } from "@chakra-ui/react";
+import { MARGIN_SPACE } from "../../../config";
 import { IEstate } from "../../../interfaces/Iestate";
-import { getSingleEstate } from "../../../supabaseCall/getSingleEstate";
-import { Box, Card, CardBody, CardHeader, Divider, Heading, Image, Stack } from "@chakra-ui/react";
-import { LinkButton } from "../../Buttons/LinkButton";
-import { InformationBoxWithHeader } from "../../InformationBoxWithHeader/InformationBoxWithHeader";
+import { LinkButton } from "../../Common/Buttons/LinkButton";
+import { InformationBoxWithHeader } from "../../Common/InformationBoxWithHeader/InformationBoxWithHeader";
 import { CreateMainInformation, CreateGeneralInformation, CreateFinancialInformation } from "./CreateEstateDetailsData";
 
-export const EstateDetails = () => {
-    const [searchParams] = useSearchParams();
-    const CLIENT_ID = searchParams.get(ESTATE_PARAM_NAME) as string;
-    const [estate, setEstate] = useState<IEstate | null>(null);
-    const estateDetails = async () => {
-        const estateDetails = await getSingleEstate(CLIENT_ID);
-        setEstate(estateDetails);
-    }
-    useEffect(() => {
-        estateDetails();
-    }, [])
-    if (!estate) return <p>Loading data...</p>
-    // create elements for grid
+interface IEstateDetailsContent {
+    estate: IEstate;
+}
+export const EstateDetailsContent = ({estate}: IEstateDetailsContent) => {
     const { name } = estate;
     const estateMainInformation = CreateMainInformation(estate);
     const generalInformation = CreateGeneralInformation(estate);
@@ -58,7 +46,7 @@ export const EstateDetails = () => {
             </CardHeader>
             <Divider mb={MARGIN_SPACE} />
             <CardBody>
-                <InformationBoxWithHeader 
+                <InformationBoxWithHeader
                     header={"General information about estate:"}
                     content={generalInformation}
                 />

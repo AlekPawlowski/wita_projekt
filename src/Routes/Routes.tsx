@@ -4,7 +4,7 @@ import { EstateMainView } from "../components/EstateComponents/EstateMainView/Es
 import { EmployeeList } from "../components/Employee/EmployeeList"
 import { OwnerList } from "../components/Owners/OwnersList"
 import { AddEstateForm } from "../components/FormComponents/AddEstateForm/AddEstateForm"
-import { EstateDetails } from "../components/EstateComponents/EstateDetails/EstateDetails"
+import { EstateDetails } from "../components/EstateComponents/EstateDetails/EstateDetailsComponent"
 
 export const RoutesComponent = () => {
     return <Routes>

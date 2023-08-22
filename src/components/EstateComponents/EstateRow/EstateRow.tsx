@@ -1,6 +1,6 @@
 import { IEstate } from "../../../interfaces/Iestate"
 import { Td, Tr } from "@chakra-ui/react";
-import { LinkButton } from "../../Buttons/LinkButton";
+import { LinkButton } from "../../Common/Buttons/LinkButton";
 import { ESTATE_PARAM_NAME } from "../../../config";
 
 type IEstateRow = {

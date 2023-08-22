@@ -20,7 +20,7 @@
  * @param tax_deadline -> deadline of the tax price
  */
 export interface IEstate {
-    id?: number 
+    id: number | string; 
     adress: string | null
     avibility: boolean | null
     contract_end_date?: string | null
