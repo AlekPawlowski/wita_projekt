@@ -6,7 +6,6 @@ import { ESTATE_PARAM_NAME, RESTART_ERROR } from "../../../config";
 import { IError } from "../../../interfaces/IError";
 import { IEstate } from "../../../interfaces/Iestate";
 import { getSingleElement } from "../../Common/getterFunctions/getSingleElement";
-import { EstateDetailsContent } from "../EstateDetails/EstateDetailsContent";
 
 export const EditEstate = () => {
     const [searchParams] = useSearchParams();
