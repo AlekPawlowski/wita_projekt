@@ -15,10 +15,30 @@ export const getAllEstates = async () => {
     }
 };
 /**
- * 
+ * call to database to get all estates that belongs to the employee
  */
-// export const getUserEstates = async (keeperName: string) => {
-//     const {data: filteredEstates, error} = await supabase
-//         .from("estate")
-//         .eq('')
-// }
+export const getAllEmployeeEstates = async (keeperPhoneNumber: string) => {
+    const {data: filteredEstates, error} = await supabase
+            .from("estate")
+            .select('*')
+            .eq('keeper_phone_number', keeperPhoneNumber)
+    if(!error){
+        return filteredEstates
+    }else{
+        throw new Error(`Error in getting estates for employee ${keeperPhoneNumber} - ${error}`)
+    }
+}
+
+/**
+ * function to split for get data based on:
+ * @param accesLevel -> acces level of the user
+ * @param phoneNumber -> phone number of the user to get his data
+ * @return object that was get from database
+ */
+export const getEstates = async (accesLevel: string, phoneNumber: number) => {
+    console.log(`Getting ${accesLevel}`)
+    if(accesLevel == "employee"){
+        return await getAllEmployeeEstates(String(phoneNumber))
+    }
+    return await getAllEstates()
+}

@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
 import { IEstate } from "../../../interfaces/Iestate";
-import { getAllEstates } from "../../../supabaseCall/estates/getAllEstates";
+import { getEstates } from "../../../supabaseCall/estates/getAllEstates";
 import { EstateRow } from "../EstateRow/EstateRow";
 import { Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux";
+
 
 // make from this one generic List
 export const EstateList = () => {
     const [estates, setEstates] = useState<IEstate[] | null>(null);
+    const state = useSelector((state: RootState) => state.user);
+    const { user } = state;
     useEffect(() => {
-        const callEstates = async () => {
-            const estatesList = await getAllEstates();
-            console.log(estatesList);
-            
-            setEstates(estatesList);
+        if (user) {
+            const callEstates = async () => {
+                const { acces_level, phone_number } = user;
+                const estatesList = await getEstates(acces_level, phone_number)
+                setEstates(estatesList);
+            }
+            callEstates();
         }
-        callEstates();
     }, []);
-    
+
     if (!estates) return null;
     return <TableContainer>
         <Table>
