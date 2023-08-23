@@ -6,7 +6,7 @@ import { Router } from 'react-router-dom'
 
 describe("Tests for Estate Form", () => {
     test("Renders without errors", () => {
-        const wrapper = render( <Router location={''} ><EstateForm formName="Test" /></Router>,{wrapper: BrowserRouter})
+        const wrapper = render( <Router location={''} ><EstateForm formName="Test" /></Router>)
         expect(wrapper).toBeTruthy()
 
         const title=screen.getByText(/Test/)
