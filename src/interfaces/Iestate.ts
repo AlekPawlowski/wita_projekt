@@ -18,6 +18,8 @@
  * @param rent_deadline -> deadline of the rent price, when contractor need to pay
  * @param tax_amount -> tax price for this estate
  * @param tax_deadline -> deadline of the tax price
+ * @param create_at (optional) -> time of creation of the element
+ * @param pictures (current optional) -> id of pictures from db
  */
 export interface IEstate {
     id: number | string; 
@@ -38,4 +40,6 @@ export interface IEstate {
     rent_deadline: string | null
     tax_amount: number | null
     tax_deadline: string | null
+    created_at?: string | null
+    pictures?: [] | null 
 }

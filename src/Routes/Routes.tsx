@@ -3,7 +3,7 @@ import { StartPage } from "../components/StartPage/StartPage"
 import { EstateMainView } from "../components/EstateComponents/EstateMainView/EstateMainView"
 import { EmployeeList } from "../components/Employee/EmployeeList"
 import { OwnerList } from "../components/Owners/OwnersList"
-import { EstateDetails } from "../components/EstateComponents/EstateDetails/EstateDetailsComponent"
+import { EstateDetails } from "../components/EstateComponents/EstateDetails/EstateDetails"
 import { AddEstate } from "../components/EstateComponents/AddEstateComponent/AddEstate"
 import { EditEstate } from "../components/EstateComponents/EditEstateComponent/EditEstate"
 

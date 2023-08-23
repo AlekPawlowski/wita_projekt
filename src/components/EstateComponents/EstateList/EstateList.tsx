@@ -10,6 +10,8 @@ export const EstateList = () => {
     useEffect(() => {
         const callEstates = async () => {
             const estatesList = await getAllEstates();
+            console.log(estatesList);
+            
             setEstates(estatesList);
         }
         callEstates();

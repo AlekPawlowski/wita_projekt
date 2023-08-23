@@ -40,8 +40,7 @@ export const CreateMainInformation = (data: IEstate): IInformationText[] => {
         {
             describe: "Market price",
             value: `${market_price} PLN`
-        }
-
+        },
     ]
     return mainInfo;
 }
@@ -85,7 +84,8 @@ export const CreateFinancialInformation = (data: IEstate): IInformationText[] =>
         {
             describe: "Tax amount",
             value: tax_amount
-        }
+        },
+        
     ];
     return financialInfo;
 }
