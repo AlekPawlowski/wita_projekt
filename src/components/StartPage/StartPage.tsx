@@ -8,13 +8,9 @@ export const StartPage = () => {
     const state = useSelector((state: RootState) => state.user);
     const { isUserLoggedIn, user } = state;
 
-    if (!user) return null;
+    if (!isUserLoggedIn || !user) return <LogInScreen />;
 
     return <Fragment>
-        {
-            isUserLoggedIn ?
-                <HomePage user={user} />
-                : <LogInScreen />
-        }
+        <HomePage user={user} />
     </Fragment>
 }

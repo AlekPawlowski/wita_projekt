@@ -7,7 +7,7 @@ import { RootState } from './redux';
 function App() {
     const state = useSelector((state: RootState) => state.user);
     const {isUserLoggedIn} = state;
-    
+    console.log(isUserLoggedIn);
     return (
         <Container maxW="1140">
             {isUserLoggedIn && <Box py="2"><Navigation /></Box>}

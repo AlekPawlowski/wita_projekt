@@ -10,6 +10,7 @@ Project goal is to increase my front end skills.
 
 ## current questions:
 - formSchema.ts, refineFunc and transformToNumber args types
+- estate form types for default values
 - where put estateFormFields element (my target would be another folder in src directory that calls formFieldsDetails)
 - help with add images to db
 - pass props in HOC without knowing what the props will be and how to type them
