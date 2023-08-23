@@ -7,7 +7,7 @@ interface IUpdateEstate {
         cb?: void
     ): void
 }
-export const updateEstate: IUpdateEstate = async (dataToUpdate, id, cb) => {
+export const updateEstate: IUpdateEstate = async (dataToUpdate: IAddEstateSchema, id: string | number, cb: void) => {
     const { error } = await supabase
         .from('estate')
         .update({ ...dataToUpdate })

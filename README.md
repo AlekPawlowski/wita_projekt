@@ -7,15 +7,9 @@ Project goal is to increase my front end skills.
 - make from Estate LIst generic element
 - add first img to estate list
 - add Loading component
-
+- change estate id from number to uuid (in supabase)
+- jak mam testy to dodać na ci cd do kazdego pull requesta
 ## current questions:
-- formSchema.ts, refineFunc and transformToNumber args types
-- supabasce cache -> any caching or something?
-- organize difrent level of acces levels, where to 
-- estate form types for default values
-- where put estateFormFields element (my target would be another folder in src directory that calls formFieldsDetails)
-- help with add images to db
-- pass props in HOC without knowing what the props will be and how to type them
 - Component CreateEstateDetailsData -> how to describe correctly create function to satisfay and check if elements inside was added properly
 
 
@@ -191,3 +185,12 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## question 
+- formSchema.ts, refineFunc and transformToNumber args types
+- supabasce cache -> any caching or something?
+- organize difrent level of acces levels, where to 
+- estate form types for default values
+- where put estateFormFields element (my target would be another folder in src directory that calls formFieldsDetails)
+- help with add images to db
+- pass props in HOC without knowing what the props will be and how to type them

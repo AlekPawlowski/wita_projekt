@@ -42,7 +42,7 @@ export interface Database {
       estate: {
         Row: {
           adress: string | null
-          avibility: boolean | null
+          avibility: boolean
           contract_end_date: string | null
           contract_start_data: string | null
           created_at: string | null
@@ -65,7 +65,7 @@ export interface Database {
         }
         Insert: {
           adress?: string | null
-          avibility?: boolean | null
+          avibility?: boolean
           contract_end_date?: string | null
           contract_start_data?: string | null
           created_at?: string | null
@@ -88,7 +88,7 @@ export interface Database {
         }
         Update: {
           adress?: string | null
-          avibility?: boolean | null
+          avibility?: boolean
           contract_end_date?: string | null
           contract_start_data?: string | null
           created_at?: string | null

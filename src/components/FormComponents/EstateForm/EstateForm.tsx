@@ -32,7 +32,7 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
     } = useForm<IAddEstateSchema>({
         defaultValues: {
             adress: isEditMode ? `${data.adress}` : "",
-            avibility: isEditMode ? data.avibility ? true : false : false,
+            avibility: isEditMode ? data.avibility : false,
             contract_end_date: isEditMode ? `${data.contract_end_date}` : "",
             contract_start_data: isEditMode ? `${data.contract_start_data}` : "",
             door_code: isEditMode ? `${data.door_code}` : "",
@@ -62,10 +62,6 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
         }
     }
 
-    const submitForm = () => {
-        console.log(errors);
-    }
-
     return <form onSubmit={handleSubmit(onSubmit)}>
         <Heading as="h1" size="md" my={MARGIN_SPACE}>{formName}</Heading>
         {
@@ -78,7 +74,7 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
         }
 
         <Flex align="center" justify="space-around">
-            <Button isLoading={isSubmitting} type="submit" onClick={submitForm} >Add estate</Button>
+            <Button isLoading={isSubmitting} type="submit" >Add estate</Button>
             {/* <Button isLoading={isSubmitting} type="submit"  >Add estate</Button> */}
             <Button type="button" onClick={() => navigate(-1)}>
                 Cancel

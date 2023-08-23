@@ -22,26 +22,30 @@
  * @param create_at (optional) -> time of creation of the element
  * @param pictures (current optional) -> id of pictures from db
  */
-export interface IEstate {
-    id: number | string; 
-    adress: string | null
-    avibility: boolean | null
-    contract_end_date?: string | null
-    contract_start_data?: string | null
-    door_code?: string | null
-    keeper_name: string | null
-    keeper_phone_number: number | null
-    market_price: number | null
-    name: string | null
-    owner_name: string | null
-    owner_phone_number: number | null
-    revanue: number | null
-    electricity_amount: number | null
-    electricity_deadline: string | null
-    rent_amount: number | null
-    rent_deadline: string | null
-    tax_amount: number | null
-    tax_deadline: string | null
-    created_at?: string | null
-    pictures?: string[] | null
-}
+// export interface IEstate {
+//     id: number | string; 
+//     adress: string | null
+//     avibility: boolean
+//     contract_end_date?: string | null
+//     contract_start_data?: string | null
+//     door_code?: string | null
+//     keeper_name: string | null
+//     keeper_phone_number: number | null
+//     market_price: number | null
+//     name: string | null
+//     owner_name: string | null
+//     owner_phone_number: number | null
+//     revanue: number | null
+//     electricity_amount: number | null
+//     electricity_deadline: string | null
+//     rent_amount: number | null
+//     rent_deadline: string | null
+//     tax_amount: number | null
+//     tax_deadline: string | null
+//     created_at?: string | null
+//     pictures?: string[] | null
+// }
+
+import { Database } from "../../types/supabase";
+
+export type IEstate=Database["public"]["Tables"]["estate"]["Row"]

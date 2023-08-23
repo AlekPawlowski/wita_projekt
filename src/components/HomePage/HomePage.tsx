@@ -8,8 +8,7 @@ type IHomePage = {
     user: IAppUsers;
 }
 
-export const HomePage = ({ user }: IHomePage) => {
-    const { acces_level, user_name } = user;
+export const HomePage = ({ user:{ acces_level, user_name } }: IHomePage) => {
     // loading data by access level here
     return <Fragment>
         {/* log out module */}

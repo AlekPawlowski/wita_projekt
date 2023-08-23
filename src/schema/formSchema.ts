@@ -6,8 +6,8 @@ const errorRefineMessage = {
     message: refineErrorMessage
 }
 
-const refineFunc = (arg: any) => Number(arg) > minValue;
-const transformToNumber = (val: any) => Number(val);
+const refineFunc = (arg: string) => Number(arg) > minValue;
+const transformToNumber = (val: string) => Number(val);
 
 export const logInSchema = z.object({
     email: z.coerce.string().email({ message: "Please provide correct email" }),

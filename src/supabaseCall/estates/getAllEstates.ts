@@ -38,7 +38,7 @@ export const getAllEmployeeEstates = async (keeperPhoneNumber: string) => {
 export const getEstates = async (accesLevel: string, phoneNumber: number) => {
     console.log(`Getting ${accesLevel}`)
     if(accesLevel == "employee"){
-        return await getAllEmployeeEstates(String(phoneNumber))
+        return getAllEmployeeEstates(String(phoneNumber))
     }
-    return await getAllEstates()
+    return getAllEstates()
 }
