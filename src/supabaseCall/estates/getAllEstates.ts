@@ -14,3 +14,11 @@ export const getAllEstates = async () => {
         throw new Error(`Error in getting estates ${error}`)
     }
 };
+/**
+ * 
+ */
+// export const getUserEstates = async (keeperName: string) => {
+//     const {data: filteredEstates, error} = await supabase
+//         .from("estate")
+//         .eq('')
+// }

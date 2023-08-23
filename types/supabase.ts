@@ -51,6 +51,7 @@ export interface Database {
           electricity_deadline: string | null
           id: number
           keeper_name: string | null
+          keeper_phone_number: number | null
           market_price: number | null
           name: string | null
           owner_name: string | null
@@ -73,6 +74,7 @@ export interface Database {
           electricity_deadline?: string | null
           id?: number
           keeper_name?: string | null
+          keeper_phone_number?: number | null
           market_price?: number | null
           name?: string | null
           owner_name?: string | null
@@ -95,6 +97,7 @@ export interface Database {
           electricity_deadline?: string | null
           id?: number
           keeper_name?: string | null
+          keeper_phone_number?: number | null
           market_price?: number | null
           name?: string | null
           owner_name?: string | null

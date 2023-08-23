@@ -29,6 +29,11 @@ export const estateFormFields: UsersFormField[] = [
         value: ""
     },
     {
+        label: "Keeper phone number",
+        inputName: "keeper_phone_number",
+        value: ""
+    },
+    {
         label: "Market price",
         inputName: "market_price",
         value: ""

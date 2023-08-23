@@ -79,7 +79,7 @@ describe("create estate details sections data", () => {
     })
     describe("Estate general information", () => {
         // ARRANGE -> mock data
-        const { door_code, name, adress, owner_name, owner_phone_number, contract_start_data } = mockEstate;
+        const { keeper_name, keeper_phone_number, door_code, name, adress, owner_name, owner_phone_number, contract_start_data } = mockEstate;
         const generalInformation = [
             {
                 describe: "Name of property",
@@ -100,6 +100,10 @@ describe("create estate details sections data", () => {
             {
                 describe: "Current contract start",
                 value: contract_start_data ? contract_start_data : "-"
+            },
+            {
+                describe: "Keeper name and phone number",
+                value: `${keeper_name}, ${keeper_phone_number}`
             }
         ];
         it("Create general information object", () => {

@@ -37,6 +37,7 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
             contract_start_data: isEditMode ? `${data.contract_start_data}` : "",
             door_code: isEditMode ? `${data.door_code}` : "",
             keeper_name: isEditMode ? `${data.keeper_name}` : "",
+            keeper_phone_number: isEditMode ? Number(data.owner_phone_number) : 0,
             market_price: isEditMode ? Number(data.market_price) : 0,
             name: isEditMode ? `${data.name}` : "",
             owner_name: isEditMode ? `${data.owner_name}` : "",

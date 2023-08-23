@@ -10,6 +10,8 @@ Project goal is to increase my front end skills.
 
 ## current questions:
 - formSchema.ts, refineFunc and transformToNumber args types
+- supabasce cache -> any caching or something?
+- organize difrent level of acces levels, where to 
 - estate form types for default values
 - where put estateFormFields element (my target would be another folder in src directory that calls formFieldsDetails)
 - help with add images to db

@@ -7,6 +7,7 @@
  * @param contract_start_data -> time when current contract start's
  * @param door_code -> (optional value) door code to propertie
  * @param keeper_name -> name of our employee that keep's this estate
+ * @param keeper_phone_number -> phone number of the employee that keep's this estate
  * @param market_price -> price of the estate if we decide to sold it
  * @param name -> name of the propertie's (like "Villa Nova")
  * @param owner_name -> name of the estate owner
@@ -29,6 +30,7 @@ export interface IEstate {
     contract_start_data?: string | null
     door_code?: string | null
     keeper_name: string | null
+    keeper_phone_number: number | null
     market_price: number | null
     name: string | null
     owner_name: string | null
@@ -41,5 +43,5 @@ export interface IEstate {
     tax_amount: number | null
     tax_deadline: string | null
     created_at?: string | null
-    pictures?: [] | null 
+    pictures?: string[] | null
 }

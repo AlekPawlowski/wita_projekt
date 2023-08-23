@@ -26,6 +26,7 @@ export const addEstateSchema = z.object({
     contract_start_data: z.string().optional().or(z.literal(null)),
     door_code: z.string().optional().or(z.literal(null)),
     keeper_name: z.string(),
+    keeper_phone_number: z.string().min(9).max(14).refine(refineFunc, errorRefineMessage).transform(transformToNumber),
     market_price: z.string().refine(refineFunc, errorRefineMessage).transform(transformToNumber),
     name: z.string().min(2, { message: "Estate must be named, min 2 letters"}),
     owner_name: z.string().min(3, { message: "Provide correct name" }),

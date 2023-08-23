@@ -104,7 +104,7 @@ export const CreateFinancialInformation = (data: IEstate): IInformationText[] =>
  * @returns The function `CreateGeneralInformation` returns an array of objects of type `IInformationText` (wich is used to create InformationText Component).
  */
 export const CreateGeneralInformation = (data: IEstate): IInformationText[] => {
-    const {door_code, name, adress, owner_name, owner_phone_number, contract_start_data} = data;
+    const {keeper_name, keeper_phone_number, door_code, name, adress, owner_name, owner_phone_number, contract_start_data} = data;
     const generalInformation: IInformationText[] = [
         {
             describe: "Name of property",
@@ -125,6 +125,10 @@ export const CreateGeneralInformation = (data: IEstate): IInformationText[] => {
         {
             describe: "Current contract start",
             value: contract_start_data ? contract_start_data : "-"
+        },
+        {
+            describe: "Keeper name and phone number",
+            value: `${keeper_name}, ${keeper_phone_number}`
         }
     ];
     return generalInformation;
