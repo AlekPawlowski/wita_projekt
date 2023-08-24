@@ -40,3 +40,15 @@ export const addEstateSchema = z.object({
     tax_deadline: z.string(),
 })
 export type IAddEstateSchema = z.infer<typeof addEstateSchema>;
+
+/**
+ * based on interface
+ * @interface IFailures
+ */
+export const failureSchema = z.object({
+    failure_description: z.string().min(3),
+    status: z.boolean(),
+    estate_id: z.string().min(3)
+})
+
+export type IFailureSchema = z.infer<typeof failureSchema>

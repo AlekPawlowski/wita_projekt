@@ -1,20 +1,20 @@
 import { Text, FormControl, Checkbox, FormErrorMessage } from "@chakra-ui/react"
-import { Control, Controller, FieldErrors, Path } from "react-hook-form"
-import { IAddEstateSchema } from "../../../schema/formSchema";
+import { Control, Controller, FieldErrors, FieldValues, Path } from "react-hook-form"
+import { MARGIN_SPACE } from "../../../config";
 
-interface IFormCheckbox {
-    inputName: Path<IAddEstateSchema>;
+interface IFormCheckbox<T extends FieldValues> {
+    inputName: Path<T>;
     label: string;
-    errors: FieldErrors<IAddEstateSchema>;
-    control: Control<IAddEstateSchema>
+    errors: FieldErrors<T>;
+    control: Control<T>
 }
 
-export const FormCheckbox = ({inputName: name, label, errors, control}: IFormCheckbox) => {
+export function FormCheckbox<T extends FieldValues>({inputName: name, label, errors, control}: IFormCheckbox<T>) {
     return <FormControl isInvalid={true}>
         {/* avibility */}
-        <Text>{label}</Text>
+        <Text display={"inline"} mr={MARGIN_SPACE}>{label}</Text>
         <Controller
-            name="avibility"
+            name={name}
             control={control}
             render={({ field }) => <Checkbox {...field} />}
         />

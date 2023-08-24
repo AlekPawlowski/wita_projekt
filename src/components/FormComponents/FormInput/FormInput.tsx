@@ -1,24 +1,21 @@
 import { FormControl, InputGroup, InputLeftAddon, Input, FormErrorMessage } from "@chakra-ui/react";
-import { FieldErrors, Path, UseFormRegister } from "react-hook-form";
-import { IAddEstateSchema } from "../../../schema/formSchema";
+import { FieldErrors, FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-interface FormInput {
-    inputName: Path<IAddEstateSchema>;
+interface FormInput<T extends FieldValues> {
+    inputName: Path<T>;
     label: string;
-    errors: FieldErrors<IAddEstateSchema>;
-    register: UseFormRegister<IAddEstateSchema>
-    value?: string;
+    errors: FieldErrors<T>;
+    register: UseFormRegister<T>
 }
 
-export const FormInput = ({ inputName: name, label, errors, register, value = "" }: FormInput) => {
+export function FormInput<T extends FieldValues>({ inputName: name, label, errors, register }: FormInput<T>) {
     return <FormControl isInvalid={!!errors[name]?.message} mb={2}>
         <InputGroup size='sm'>
             <InputLeftAddon children={label} />
             <Input
                 id={name}
                 placeholder={name}
-                defaultValue={value}
-                {...register(`${name}`)}
+                {...register(name)}
             />
         </InputGroup>
         <FormErrorMessage>

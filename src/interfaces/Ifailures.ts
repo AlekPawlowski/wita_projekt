@@ -1,3 +1,5 @@
+import { Database } from "../../types/supabase";
+
 /**
  * interface for single failure description
  * @param estateId -> id of estate assign to this failure
@@ -5,9 +7,4 @@
  * @param status -> status of failure, can be: done, to do, in progress
  * @param created_at -> date that failure was added to the registry
  */
-export interface IFailure {
-    estateId: number;
-    failure_descriptions: string;
-    status: "done" | "to do" | "in progress";
-    created_at: string;
-}
+export type IFailures = Database["public"]["Tables"]["failures"]["Row"]

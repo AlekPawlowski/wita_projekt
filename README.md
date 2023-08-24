@@ -4,11 +4,11 @@ Project goal is to increase my front end skills.
 
 ## Current todos (to remember):
 - add to estate form possibility to add new images
-- make from Estate LIst generic element
 - add first img to estate list
 - add Loading component
-- change estate id from number to uuid (in supabase)
 - add to ci cd test after every pull request
+- fix error that occurs in FormCheckbox and FormInput components
+- fix errors that occurs on default values in EstateForm componet
 ## current questions:
 - Component CreateEstateDetailsData -> how to describe correctly create function to satisfay and check if elements inside was added properly
 

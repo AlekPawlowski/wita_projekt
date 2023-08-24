@@ -116,41 +116,41 @@ export interface Database {
           created_at: string | null
           estate_id: string | null
           failure_description: string | null
-          id: number
-          status: string | null
+          id: string
+          status: boolean | null
         }
         Insert: {
           created_at?: string | null
           estate_id?: string | null
           failure_description?: string | null
-          id?: number
-          status?: string | null
+          id?: string
+          status?: boolean | null
         }
         Update: {
           created_at?: string | null
           estate_id?: string | null
           failure_description?: string | null
-          id?: number
-          status?: string | null
+          id?: string
+          status?: boolean | null
         }
         Relationships: []
       }
       owners: {
         Row: {
           created_at: string | null
-          id: number
+          id: string
           name: string | null
           phone_number: number | null
         }
         Insert: {
           created_at?: string | null
-          id?: number
+          id?: string
           name?: string | null
           phone_number?: number | null
         }
         Update: {
           created_at?: string | null
-          id?: number
+          id?: string
           name?: string | null
           phone_number?: number | null
         }

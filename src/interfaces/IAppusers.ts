@@ -1,3 +1,5 @@
+import { Database } from "../../types/supabase";
+
 /**
  * @param id -> id of the user in database
  * @param username -> username of the app user
@@ -6,13 +8,6 @@
  * @param phoneNumber -> phone number of the app user
  * @param location -> location of the app user
  */
-export interface IAppUsers {
-    id?: number | string;
-    user_name: string;
-    acces_level: accesLevel;
-    email: string;
-    phone_number: number;
-    location: string;
-}
+export type IAppUser = Database["public"]["Tables"]["app_users"]["Row"]
 
 export type accesLevel = "employee" | "admin" | "account";

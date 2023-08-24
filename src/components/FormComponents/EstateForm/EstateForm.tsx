@@ -67,9 +67,19 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
         {
             estateFormFields.map(field => {
                 if (field.inputName == "avibility") {
-                    return <FormCheckbox key={field.label} {...field} errors={errors} control={control} />
+                    return <FormCheckbox<IAddEstateSchema>
+                        key={field.label}
+                        {...field}
+                        errors={errors}
+                        control={control}
+                    />
                 }
-                return <FormInput key={field.label} {...field} register={register} errors={errors} />
+                return <FormInput<IAddEstateSchema>
+                    key={field.label}
+                    {...field}
+                    register={register}
+                    errors={errors}
+                />
             })
         }
 
