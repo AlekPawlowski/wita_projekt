@@ -1,26 +1,20 @@
 import { describe, test, expect } from 'vitest'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from "@testing-library/user-event";
 import { EstateForm } from './EstateForm'
 import { Router } from 'react-router-dom'
 
 describe("Tests for Estate Form", () => {
+    const wrapper = render(<Router location={''} ><EstateForm formName="Test" /></Router>)
     test("Renders without errors", () => {
-        const wrapper = render( <Router location={''} ><EstateForm formName="Test" /></Router>)
         expect(wrapper).toBeTruthy()
-
-        const title=screen.getByText(/Test/)
         
+        const title = screen.getByText(/Test/)
+
         expect(title).toBeDefined()
     })
-     test("Renders without errors", async () => {
-        const wrapper = render(
-            <Router location={''} >
-                <EstateForm formName="Test" />
-            </Router>
-        )
-
-        const submitButton=screen.getByText(/Add estate/)
+    test("test click submit without any data", async () => {
+        const submitButton = screen.getByText(/Add estate/)
 
         expect(submitButton).toBeDefined();
 

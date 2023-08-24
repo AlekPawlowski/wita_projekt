@@ -8,7 +8,7 @@ Project goal is to increase my front end skills.
 - add first img to estate list
 - add Loading component
 - change estate id from number to uuid (in supabase)
-- jak mam testy to dodać na ci cd do kazdego pull requesta
+- add to ci cd test after every pull request
 ## current questions:
 - Component CreateEstateDetailsData -> how to describe correctly create function to satisfay and check if elements inside was added properly
 

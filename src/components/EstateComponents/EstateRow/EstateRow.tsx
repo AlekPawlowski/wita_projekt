@@ -8,12 +8,12 @@ type IEstateRow = {
 }
 
 export const EstateRow = ({estateDetails}: IEstateRow) => {
-    const {id, name, adress, avibility} = estateDetails;
+    const {id, owner_name, name, adress, avibility} = estateDetails;
     return <Tr>
         <Td>Image</Td>
-        <Td>{id}</Td>
         <Td>{name}</Td>
         <Td>{adress}</Td>
+        <Td>{owner_name}</Td>
         <Td>{avibility ? "Available" : "Unavail"}</Td>
         <Td>
             <LinkButton link={`/estates/${id}?${ESTATE_PARAM_NAME}=${id}`}>Details</LinkButton>

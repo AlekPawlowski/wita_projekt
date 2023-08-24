@@ -49,7 +49,7 @@ export interface Database {
           door_code: string | null
           electricity_amount: number | null
           electricity_deadline: string | null
-          id: number
+          id: string
           keeper_name: string | null
           keeper_phone_number: number | null
           market_price: number | null
@@ -72,7 +72,7 @@ export interface Database {
           door_code?: string | null
           electricity_amount?: number | null
           electricity_deadline?: string | null
-          id?: number
+          id: string
           keeper_name?: string | null
           keeper_phone_number?: number | null
           market_price?: number | null
@@ -95,7 +95,7 @@ export interface Database {
           door_code?: string | null
           electricity_amount?: number | null
           electricity_deadline?: string | null
-          id?: number
+          id?: string
           keeper_name?: string | null
           keeper_phone_number?: number | null
           market_price?: number | null
