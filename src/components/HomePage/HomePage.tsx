@@ -31,9 +31,12 @@ export const HomePage = ({ user:{ acces_level, user_name } }: IHomePage) => {
                     : null}
                 {/* list of all owners -> admin */}
                 {acces_level === "admin"
-                    ? <Button><Link to="owners">Owners List</Link></Button>
+                    ? <Button><Link to="owners">Owners list</Link></Button>
                     : null
                 }
+                <Button>
+                    <Link to="failures">Failures list</Link>
+                </Button>
             </Flex>
         </Flex>
     </Fragment>

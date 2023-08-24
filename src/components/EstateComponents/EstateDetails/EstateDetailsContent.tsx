@@ -21,6 +21,7 @@ export const EstateDetailsContent = ({estate}: IEstateDetailsContent) => {
         > 
             <LinkButton link={"/estates"}>Back to estate list</LinkButton>
             <LinkButton link={`/estates/editestate?${ESTATE_PARAM_NAME}=${id}`}>Edit estate</LinkButton>
+            <LinkButton link={`/failures/add?${ESTATE_PARAM_NAME}=${id}`}>Add failures</LinkButton>
         </Flex>
         <Card
             direction={{ base: 'column', sm: 'row' }}

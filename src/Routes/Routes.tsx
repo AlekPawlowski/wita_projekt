@@ -6,6 +6,8 @@ import { OwnerList } from "../components/Owners/OwnersList"
 import { EstateDetails } from "../components/EstateComponents/EstateDetails/EstateDetails"
 import { AddEstate } from "../components/EstateComponents/AddEstateComponent/AddEstate"
 import { EditEstate } from "../components/EstateComponents/EditEstateComponent/EditEstate"
+import { AddFailures } from "../components/Failures/AddFailures/AddFailures"
+import { FailuresSite } from "../components/Failures/FailuresSite/FailuresSite"
 
 export const RoutesComponent = () => {
     return <Routes>
@@ -15,6 +17,11 @@ export const RoutesComponent = () => {
         <Route path="/estates/:id" element={<EstateDetails />}/>
         <Route path="/estates/addestate" element={<AddEstate />} />
         <Route path="/estates/editestate" element={<EditEstate />} />
+
+        {/* Failures */}
+        <Route path="/failures" element={<FailuresSite />} />
+        <Route path="/failures/add" element={<AddFailures />} />
+
         {/* employee */}
         <Route path="/employee" element={<EmployeeList />} />
 
