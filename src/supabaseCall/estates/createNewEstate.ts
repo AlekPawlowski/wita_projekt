@@ -1,6 +1,5 @@
 import { supabase } from "../../config"
 import { IAddEstateSchema } from "../../schema/formSchema"
-import {v4 as uuidv4} from 'uuid';
 
 export const createNewEstate = async (dataToAdd: IAddEstateSchema, cb: void) => {
     /**
@@ -24,12 +23,10 @@ export const createNewEstate = async (dataToAdd: IAddEstateSchema, cb: void) => 
     if (estate && estate.length !== 0) {
         alert("this estate exist in db, add diffrent estate")
     } else {
-        const elementId = uuidv4();
-        console.log(elementId);
         const { data: newEstate, error } = await supabase
             .from('estate')
             .insert([
-                { ...dataToAdd, id: elementId },
+                { ...dataToAdd },
             ])
             .select()
 
