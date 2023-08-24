@@ -8,6 +8,10 @@ type FailureFormFields = {
 
 export const FailureFormFields: FailureFormFields[] = [
     {
+        label: "Failure title",
+        inputName: "failure_title"
+    },
+    {
         label: "Failure description",
         inputName: "failure_description"
     },

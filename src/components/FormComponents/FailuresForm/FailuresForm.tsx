@@ -25,6 +25,7 @@ export const FailuresForm = ({estateId}: IFailureForm) => {
         control
     } = useForm<IFailureSchema>({
         defaultValues: {
+            failure_title: "",
             failure_description: "",
             estate_id: isEstateKnown ? estateId : "",
             status: false
