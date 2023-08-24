@@ -3,7 +3,8 @@ This project is project to hold all data about real estate and with details of e
 Project goal is to increase my front end skills.
 
 ## Current todos (to remember):
-- add title to the failure and conditionaly render items
+- add to failures radio checkbox for status
+- create HOC for get all estates
 - add to estate form possibility to add new images
 - add first img to estate list
 - add Loading component

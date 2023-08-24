@@ -62,6 +62,5 @@ export const EstateDetailsContent = ({estate}: IEstateDetailsContent) => {
                 />
             </CardBody>
         </Card>
-        
     </Box>
 }
