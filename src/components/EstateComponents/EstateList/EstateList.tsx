@@ -1,27 +1,29 @@
-import { useEffect, useState } from "react";
-import { IEstate } from "../../../interfaces/Iestate";
+import { Heading, TableContainer, Table, Thead, Tr, Th, Tbody } from "@chakra-ui/react";
+import { useEstateContext } from "../../../Context/EstateContext";
+import { ESTATE_QUERY } from "../../../config";
+import { IAppUsers } from "../../../interfaces/IAppusers"
 import { getEstates } from "../../../supabaseCall/estates/getAllEstates";
 import { EstateRow } from "../EstateRow/EstateRow";
-import { Table, TableContainer, Tbody, Th, Thead, Tr, Heading } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
 
+type IEstateList = {
+    user: IAppUsers;
+}
+export const EstateList = ({user}: IEstateList) => {
+    const {estates, setEstates} = useEstateContext();
+    
+    const { acces_level, phone_number } = user;
+    const {data: estatesData} = useQuery([ESTATE_QUERY], () => getEstates(acces_level, phone_number))
 
-// make from this one generic List
-export const EstateList = () => {
-    const [estates, setEstates] = useState<IEstate[] | null>(null);
-    const state = useSelector((state: RootState) => state.user);
-    const { user } = state;
     useEffect(() => {
-        if (user) {
+        if (estatesData) {
             const callEstates = async () => {
-                const { acces_level, phone_number } = user;
-                const estatesList = await getEstates(acces_level, phone_number)
-                setEstates(estatesList);
+                setEstates(estatesData);
             }
             callEstates();
         }
-    }, []);
+    }, [estatesData]);
 
     if (!estates) return null;
     if (estates.length == 0) return <Heading as="h2" size="md">There is no estates that match to you, contact with admin</Heading>

@@ -1,5 +1,5 @@
 import { Text, Box, Heading, Button, Flex } from "@chakra-ui/react"
-import { ESTATE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config"
+import { GRID_CONFIG, MARGIN_SPACE } from "../../../config"
 import { FailuresForm } from "../../FormComponents/FailuresForm/FailuresForm"
 import { LinkButton } from "../../Common/Buttons/LinkButton"
 import { useNavigate } from "react-router-dom"
