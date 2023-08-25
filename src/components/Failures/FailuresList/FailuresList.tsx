@@ -23,7 +23,8 @@ export const FailuresList = ({ estateId }: IFailuresList) => {
     }, [])
     // call failures list
     if (!failures) return <p>Loading ...</p>
-    if (failures.length == 0) return <Heading as="h2" size="md">There is no estates that match to you, contact with admin</Heading>
+    if (failures.length == 0) return <Heading as="h2" size="md">There is no failures in estates that match to you, contact with admin, or it's ok</Heading>
+    
     return <Box my={MARGIN_SPACE}>
         <Heading as="h2" size="md" my={MARGIN_SPACE}>List of failures</Heading>
         <TableContainer>
