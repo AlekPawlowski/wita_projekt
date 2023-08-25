@@ -9,16 +9,17 @@ import { useNavigate } from "react-router-dom"
 import { addNewFailure } from "../../../supabaseCall/failures/createNewFailure"
 import { udpateFailure } from "../../../supabaseCall/failures/updateFailure"
 import { IFailures } from "../../../interfaces/Ifailures"
+import { IEstateFailData } from "../../../interfaces/Iestate"
 
 type IFailureForm = {
-    estateId: string;
+    estateData: IEstateFailData;
     title: string;
     failureObj?: IFailures;
 }
 /**
  * should contain some data, mostly id of estate to know where to put it
  */
-export const FailuresForm = ({failureObj, estateId, title}: IFailureForm) => {
+export const FailuresForm = ({failureObj, estateData, title}: IFailureForm) => {
     // if failure id known, then update
     const isFailureObjKnown = !!failureObj;
     const navigate = useNavigate();    
@@ -31,7 +32,8 @@ export const FailuresForm = ({failureObj, estateId, title}: IFailureForm) => {
         defaultValues: {
             failure_title: isFailureObjKnown ? failureObj.failure_title : "",
             failure_description: isFailureObjKnown ? failureObj.failure_description : "",
-            estate_id: estateId,
+            estate_id: estateData.id,
+            estate_name: estateData.name ? estateData.name : "",
             status: isFailureObjKnown ? failureObj.status : false,
         },
         resolver: zodResolver(failureSchema)

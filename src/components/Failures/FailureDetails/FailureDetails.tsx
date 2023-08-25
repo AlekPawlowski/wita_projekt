@@ -21,10 +21,13 @@ export const FailureDetails = () => {
             const singleFailure = await getSingleFailure(FAILURE_ID);
             setFailure(singleFailure);
 
-            // get estate information
-            const { estate_id } = singleFailure;
-            const estateDetail = await getEstateMainInfo(estate_id)
-            setEstate(estateDetail);
+            // // get estate information
+            const { estate_id, failue_estate_name } = singleFailure;
+            const estateDetails: IEstateFailData = {
+                id: estate_id, 
+                name: failue_estate_name
+            }
+            setEstate(estateDetails)
         }
         callData();
     }, []);

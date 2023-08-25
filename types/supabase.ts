@@ -115,26 +115,29 @@ export interface Database {
         Row: {
           created_at: string | null
           estate_id: string
+          failue_estate_name: string
           failure_description: string
           failure_title: string
           id: string
-          status: boolean | null
+          status: boolean
         }
         Insert: {
           created_at?: string | null
           estate_id: string
+          failue_estate_name?: string
           failure_description?: string
           failure_title?: string
           id?: string
-          status?: boolean | null
+          status: boolean
         }
         Update: {
           created_at?: string | null
           estate_id?: string
+          failue_estate_name?: string
           failure_description?: string
           failure_title?: string
           id?: string
-          status?: boolean | null
+          status?: boolean
         }
         Relationships: []
       }

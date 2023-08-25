@@ -49,7 +49,8 @@ export const failureSchema = z.object({
     failure_title: z.string().min(3),
     failure_description: z.string().min(3),
     status: z.boolean(),
-    estate_id: z.string().min(3)
+    estate_id: z.string().min(3),
+    estate_name: z.string().min(1)
 })
 
 export type IFailureSchema = z.infer<typeof failureSchema>
