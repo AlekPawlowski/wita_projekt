@@ -12,6 +12,7 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 
 // Global variables
 export const ESTATE_PARAM_NAME = "estateId";
+export const FAILURE_PARAM_NAME = "failureId";
 
 export const GRID_CONFIG = {
     gap: 3, // numerical from chakra

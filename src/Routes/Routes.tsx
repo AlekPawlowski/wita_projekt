@@ -8,6 +8,8 @@ import { AddEstate } from "../components/EstateComponents/AddEstateComponent/Add
 import { EditEstate } from "../components/EstateComponents/EditEstateComponent/EditEstate"
 import { AddFailures } from "../components/Failures/AddFailures/AddFailures"
 import { FailuresSite } from "../components/Failures/FailuresSite/FailuresSite"
+import { FailureDetails } from "../components/Failures/FailureDetails/FailureDetails"
+import { EditFailures } from "../components/Failures/EditFailures/EditFailures"
 
 export const RoutesComponent = () => {
     return <Routes>
@@ -21,6 +23,8 @@ export const RoutesComponent = () => {
         {/* Failures */}
         <Route path="/failures" element={<FailuresSite />} />
         <Route path="/failures/add" element={<AddFailures />} />
+        <Route path="/failures/edit" element={<EditFailures />} />
+        <Route path="/failure/:id" element={<FailureDetails />} />
 
         {/* employee */}
         <Route path="/employee" element={<EmployeeList />} />

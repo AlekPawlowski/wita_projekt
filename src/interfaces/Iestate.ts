@@ -25,3 +25,8 @@ import { Database } from "../../types/supabase";
  * @param pictures (current optional) -> id of pictures from db
  */
 export type IEstate=Database["public"]["Tables"]["estate"]["Row"]
+
+export type IEstateFailData = {
+    id: Database["public"]["Tables"]["estate"]["Row"]["id"],
+    name: Database["public"]["Tables"]["estate"]["Row"]["name"],
+}
