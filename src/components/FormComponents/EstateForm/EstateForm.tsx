@@ -56,10 +56,11 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
     const onSubmit: SubmitHandler<IAddEstateSchema> = async (formData) => {
         if (!isEditMode) {
             // create new user
-            createNewEstate(formData, navigate(-1));
+            await createNewEstate(formData);
         } else {
-            updateEstate(formData, data.id, navigate(-1));
+            await updateEstate(formData, data.id);
         }
+        navigate(-1)
     }
 
     return <form onSubmit={handleSubmit(onSubmit)}>

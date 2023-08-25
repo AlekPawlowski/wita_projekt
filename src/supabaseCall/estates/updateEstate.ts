@@ -7,7 +7,7 @@ interface IUpdateEstate {
         cb?: void
     ): void
 }
-export const updateEstate: IUpdateEstate = async (dataToUpdate: IAddEstateSchema, id: string | number, cb: void) => {
+export const updateEstate: IUpdateEstate = async (dataToUpdate: IAddEstateSchema, id: string | number) => {
     const { error } = await supabase
         .from('estate')
         .update({ ...dataToUpdate })
@@ -18,5 +18,4 @@ export const updateEstate: IUpdateEstate = async (dataToUpdate: IAddEstateSchema
     }else{
         alert(`Edit was break beacuse of ${error}`)
     }
-    cb
 }

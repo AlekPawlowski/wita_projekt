@@ -1,7 +1,7 @@
 import { supabase } from "../../config"
 import { IAddEstateSchema } from "../../schema/formSchema"
 
-export const createNewEstate = async (dataToAdd: IAddEstateSchema, cb: void) => {
+export const createNewEstate = async (dataToAdd: IAddEstateSchema) => {
     /**
         * first check if estate that we wanna add exist in db
         * by given params:
@@ -35,6 +35,5 @@ export const createNewEstate = async (dataToAdd: IAddEstateSchema, cb: void) => 
         }
         console.log(newEstate);
         alert("Correctly added to datebase");
-        cb;
     }
 }
