@@ -4,6 +4,7 @@ import { IEstate } from "../../../interfaces/Iestate";
 import { LinkButton } from "../../Common/Buttons/LinkButton";
 import { InformationBoxWithHeader } from "../../Common/InformationBoxWithHeader/InformationBoxWithHeader";
 import { CreateMainInformation, CreateGeneralInformation, CreateFinancialInformation } from "./CreateEstateDetailsData";
+import { FailuresList } from "../../Failures/FailuresList/FailuresList";
 
 interface IEstateDetailsContent {
     estate: IEstate;
@@ -62,5 +63,6 @@ export const EstateDetailsContent = ({estate}: IEstateDetailsContent) => {
                 />
             </CardBody>
         </Card>
+        <FailuresList estateId={id} />
     </Box>
 }
