@@ -115,24 +115,24 @@ export interface Database {
         Row: {
           created_at: string | null
           estate_id: string
-          failure_description: string | null
-          failure_title: string | null
+          failure_description: string
+          failure_title: string
           id: string
           status: boolean | null
         }
         Insert: {
           created_at?: string | null
           estate_id: string
-          failure_description?: string | null
-          failure_title?: string | null
+          failure_description?: string
+          failure_title?: string
           id?: string
           status?: boolean | null
         }
         Update: {
           created_at?: string | null
           estate_id?: string
-          failure_description?: string | null
-          failure_title?: string | null
+          failure_description?: string
+          failure_title?: string
           id?: string
           status?: boolean | null
         }

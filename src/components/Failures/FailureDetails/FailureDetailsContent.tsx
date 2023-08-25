@@ -45,7 +45,7 @@ export const FailureDetailsContent = ({ failure, estate }: IFailureDetailsConten
         > 
             <LinkButton link={"/failures"}>Failures list</LinkButton>
             <LinkButton link={`/estates/${estateId}?${ESTATE_PARAM_NAME}=${estateId}`}>Failure estate</LinkButton>
-            <LinkButton link={`/failures/edit?${FAILURE_PARAM_NAME}=${failureId}`}>Edit failures</LinkButton>
+            <LinkButton link={`/failures/edit?${FAILURE_PARAM_NAME}=${failureId}&${ESTATE_PARAM_NAME}=${estateId}`}>Edit failures</LinkButton>
             <Button onClick={removeFailure} >Remove failure</Button>
         </Flex>
     </Box>

@@ -7,17 +7,21 @@ import { FormInput } from "../FormInput/FormInput"
 import { Flex, Button } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import { addNewFailure } from "../../../supabaseCall/failures/createNewFailure"
+import { udpateFailure } from "../../../supabaseCall/failures/updateFailure"
+import { IFailures } from "../../../interfaces/Ifailures"
 
 type IFailureForm = {
-    estateId?: string;
+    estateId: string;
+    title: string;
+    failureObj?: IFailures;
 }
 /**
  * should contain some data, mostly id of estate to know where to put it
  */
-export const FailuresForm = ({estateId}: IFailureForm) => {
-    const isEstateKnown = estateId;
-
-    const navigate = useNavigate();
+export const FailuresForm = ({failureObj, estateId, title}: IFailureForm) => {
+    // if failure id known, then update
+    const isFailureObjKnown = !!failureObj;
+    const navigate = useNavigate();    
     const {
         register,
         handleSubmit,
@@ -25,17 +29,20 @@ export const FailuresForm = ({estateId}: IFailureForm) => {
         control
     } = useForm<IFailureSchema>({
         defaultValues: {
-            failure_title: "",
-            failure_description: "",
-            estate_id: isEstateKnown ? estateId : "",
-            status: false
+            failure_title: isFailureObjKnown ? failureObj.failure_title : "",
+            failure_description: isFailureObjKnown ? failureObj.failure_description : "",
+            estate_id: estateId,
+            status: isFailureObjKnown ? failureObj.status : false,
         },
         resolver: zodResolver(failureSchema)
     })
 
     const onSubmit: SubmitHandler<IFailureSchema> = async (formData) => {
-        console.log(formData);
-        addNewFailure(formData);
+        if(!isFailureObjKnown){
+            addNewFailure(formData);
+        }else{
+            udpateFailure(failureObj.id, formData);
+        }
     }
 
     return <form onSubmit={handleSubmit(onSubmit)}>
@@ -58,7 +65,7 @@ export const FailuresForm = ({estateId}: IFailureForm) => {
             })
         }
         <Flex align="center" justify="space-around">
-            <Button isLoading={isSubmitting} type="submit" >Add failures</Button>
+            <Button isLoading={isSubmitting} type="submit" >{title}</Button>
             <Button type="button" onClick={() => navigate(-1)}>
                 Cancel
             </Button>

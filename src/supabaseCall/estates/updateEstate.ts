@@ -4,7 +4,6 @@ interface IUpdateEstate {
     (
         dataToUpdate: IAddEstateSchema,
         id: string | number,
-        cb?: void
     ): void
 }
 export const updateEstate: IUpdateEstate = async (dataToUpdate: IAddEstateSchema, id: string | number) => {

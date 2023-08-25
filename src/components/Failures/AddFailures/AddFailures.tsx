@@ -20,6 +20,6 @@ export const AddFailures = () => {
     return <Box>
         <Heading as="h1" size="md" my={MARGIN_SPACE}>Add Failures</Heading>
         <Text my={MARGIN_SPACE}>Here you can add failures to the estate {/* here gonna be estate name*/}</Text>
-        <FailuresForm estateId={estateId}/>
+        <FailuresForm title={"Add failure"} estateId={estateId}/>
     </Box>
 }
