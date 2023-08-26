@@ -30,11 +30,12 @@ export const EstateSelectBox = ({ title, setEstate }: IEstateSelectBox) => {
     }, []);
     const selectChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const id = event.target.value;
-        const name = event.target.dataset.name;
+        const selectedEstateName = estates?.filter(estate => estate.id === id)[0].name;
+        console.log("estate name", selectedEstateName)
         if(id){
             const estate = {
                 id: id,
-                name: name ? "" : "name"
+                name: selectedEstateName as string
             }
             setEstate(estate);
         }
@@ -45,7 +46,7 @@ export const EstateSelectBox = ({ title, setEstate }: IEstateSelectBox) => {
         <Select placeholder='Select estate' onChange={selectChange}>
             {estates.map((estate)=> {
                 const {name, id} = estate;
-                return <option key={id} value={id} data-name={name}>{name}</option>
+                return <option key={id} value={id}>{name}</option>
             })}
         </Select>
     </Box>

@@ -20,6 +20,7 @@ type IFailureForm = {
  * should contain some data, mostly id of estate to know where to put it
  */
 export const FailuresForm = ({failureObj, estateData, title}: IFailureForm) => {
+    console.log("data estate", estateData)
     // if failure id known, then update
     const isFailureObjKnown = !!failureObj;
     const navigate = useNavigate();    
