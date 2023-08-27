@@ -1,13 +1,13 @@
 import { Fragment, useEffect, useState } from "react"
 import { EstateForm } from "../../FormComponents/EstateForm/EstateForm"
 import { useSearchParams } from "react-router-dom";
-import { ESTATE_PARAM_NAME } from "../../../config";
+import { ESTATE_PARAM_ID } from "../../../config";
 import { IEstate } from "../../../interfaces/Iestate";
 import { getSingleEstate } from "../../../supabaseCall/estates/getSingleEstate";
 
 export const EditEstate = () => {
     const [searchParams] = useSearchParams();
-    const CLIENT_ID = searchParams.get(ESTATE_PARAM_NAME) as string;
+    const CLIENT_ID = searchParams.get(ESTATE_PARAM_ID) as string;
     const [estate, setEstate] = useState<IEstate | null>(null);
     useEffect(() => {
         const callEstate = async () => {

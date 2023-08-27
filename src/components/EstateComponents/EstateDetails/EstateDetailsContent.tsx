@@ -1,5 +1,5 @@
 import { Image, Card, Stack, CardBody, Divider, CardHeader, Heading, Box, Flex } from "@chakra-ui/react";
-import { ESTATE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config";
+import { ESTATE_PARAM_ID, ESTATE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config";
 import { IEstate } from "../../../interfaces/Iestate";
 import { LinkButton } from "../../Common/Buttons/LinkButton";
 import { InformationBoxWithHeader } from "../../Common/InformationBoxWithHeader/InformationBoxWithHeader";
@@ -21,8 +21,8 @@ export const EstateDetailsContent = ({estate}: IEstateDetailsContent) => {
             gap={GRID_CONFIG.gap}
         > 
             <LinkButton link={"/estates"}>Back to estate list</LinkButton>
-            <LinkButton link={`/estates/editestate?${ESTATE_PARAM_NAME}=${id}`}>Edit estate</LinkButton>
-            <LinkButton link={`/failures/add?${ESTATE_PARAM_NAME}=${id}`}>Add failures</LinkButton>
+            <LinkButton link={`/estates/editestate?${ESTATE_PARAM_ID}=${id}`}>Edit estate</LinkButton>
+            <LinkButton link={`/failures/add?${ESTATE_PARAM_ID}=${id}&${ESTATE_PARAM_NAME}=${name}`}>Add failures</LinkButton>
         </Flex>
         <Card
             direction={{ base: 'column', sm: 'row' }}

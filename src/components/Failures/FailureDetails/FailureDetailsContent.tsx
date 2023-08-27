@@ -2,7 +2,7 @@ import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import { IEstateFailData } from "../../../interfaces/Iestate";
 import { IFailures } from "../../../interfaces/Ifailures"
 import { LinkButton } from "../../Common/Buttons/LinkButton";
-import { ESTATE_PARAM_NAME, FAILURE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config";
+import { ESTATE_PARAM_ID, FAILURE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config";
 import { createFailuresContentData } from "./createFailuresContentData";
 import { InformationText } from "../../Common/InformationText/InformationText";
 import { deleteFailure } from "../../../supabaseCall/failures/deleteFailure";
@@ -44,8 +44,8 @@ export const FailureDetailsContent = ({ failure, estate }: IFailureDetailsConten
             gap={GRID_CONFIG.gap}
         > 
             <LinkButton link={"/failures"}>Failures list</LinkButton>
-            <LinkButton link={`/estates/${estateId}?${ESTATE_PARAM_NAME}=${estateId}`}>Failure estate</LinkButton>
-            <LinkButton link={`/failures/edit?${FAILURE_PARAM_NAME}=${failureId}&${ESTATE_PARAM_NAME}=${estateId}`}>Edit failures</LinkButton>
+            <LinkButton link={`/estates/${estateId}?${ESTATE_PARAM_ID}=${estateId}`}>Failure estate</LinkButton>
+            <LinkButton link={`/failures/edit?${FAILURE_PARAM_NAME}=${failureId}&${ESTATE_PARAM_ID}=${estateId}`}>Edit failures</LinkButton>
             <Button onClick={removeFailure} >Remove failure</Button>
         </Flex>
     </Box>
