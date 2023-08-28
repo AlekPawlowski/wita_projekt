@@ -1,7 +1,5 @@
 name: Merge and deploy
 
-
-
 on:
   push:
     branches: [ "master"]
@@ -33,4 +31,5 @@ jobs:
           npm run test
       
       - name: Show env
-        run: echo "My environment variable: $VITE_SUPABASE_KEY"
+        run: | 
+          echo "My environment variable: $VITE_SUPABASE_KEY"
