@@ -1,5 +1,8 @@
 name: Merge and deploy
 
+env:
+  VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
+
 on:
   push:
     branches: [ "master"]
@@ -23,13 +26,7 @@ jobs:
       - name: Build
         run: | 
           npm install
-          
 
-  test:
-    name: Tests
-    runs-on: ubuntu-latest
-    
-    steps:
       - name: Test
         run: |
           npm run test
