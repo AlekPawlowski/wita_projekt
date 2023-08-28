@@ -10,12 +10,16 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    
-    strategy:
-      matrix:
-        node-version: [ 18.x ]
-        
+
     steps:
+    - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Build
         run: | 
           npm install
@@ -27,6 +31,3 @@ jobs:
       - name: Test
         run: |
           npm run test
-    
-      
-      
