@@ -14,7 +14,7 @@ describe("Tests for Estate Form", () => {
         )
 
         expect(wrapper).toBeTruthy()
-        const title = screen.getByText(/Test/)
+        const title = screen.getByText(/Tesst/)
 
         expect(title).toBeDefined()
     })
