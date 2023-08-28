@@ -26,10 +26,11 @@ jobs:
         run: | 
           npm install
 
+      - name: Show env
+        run: | 
+          echo "My environment variable: $VITE_SUPABASE_KEY"
+          
       - name: Test
         run: |
           npm run test
       
-      - name: Show env
-        run: | 
-          echo "My environment variable: $VITE_SUPABASE_KEY"
