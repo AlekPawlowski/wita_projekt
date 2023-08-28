@@ -2,7 +2,7 @@ import { supabase } from "../../config";
 import { IFailureSchema } from "../../schema/formSchema";
 
 export const addNewFailure = async (dataToAdd: IFailureSchema) => {
-    const { data, error } = await supabase
+    const { error } = await supabase
         .from('failures')
         .insert([
             { ...dataToAdd }

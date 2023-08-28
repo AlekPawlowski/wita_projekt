@@ -21,7 +21,7 @@ interface IEstateForm {
  * @param data -> data of the form, if null go with empty
  */
 export const EstateForm = ({ formName, data }: IEstateForm) => {
-    const isEditMode = data;
+    const isEditMode = !!data;
     const navigate = useNavigate();
 
     const {
@@ -85,7 +85,7 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
         }
 
         <Flex align="center" justify="space-around">
-            <Button isLoading={isSubmitting} type="submit" >{isEditMode ? "Edit estate" : "Add estate"}</Button>
+            <Button isLoading={isSubmitting} type="submit">{isEditMode ? "Edit estate" : "Add estate"}</Button>
             {/* <Button isLoading={isSubmitting} type="submit"  >Add estate</Button> */}
             <Button type="button" onClick={() => navigate(-1)}>
                 Cancel
