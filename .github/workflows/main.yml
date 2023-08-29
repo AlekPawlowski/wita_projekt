@@ -62,14 +62,10 @@ jobs:
                 npm run test
 
     status_check_on_failure:
-        needs: [build, test]
+        needs: [test]
         runs-on: ubuntu-latest
 
         steps:
-            - name: Check build staus
-              if: ${{ needs.build.result == 'failure' }}
-              run: echo "Build failed"
-
-            - name: Check build status
+            - name: Check test status
               if: ${{ needs.test.result == 'failure' }}
               run: echo "Tests failed!"

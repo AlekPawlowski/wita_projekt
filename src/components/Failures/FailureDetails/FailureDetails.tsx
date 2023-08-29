@@ -12,7 +12,7 @@ export const FailureDetails = () => {
     console.log("fail id", FAILURE_ID);
     // 2 calls, first for failure data and second to estate (only name and id)
     const [failure, setFailure] = useState<IFailures | null>(null);
-    const [estate, setEstate] = useState<IEstateFailDat | null>(null);
+    const [estate, setEstate] = useState<IEstateFailData | null>(null);
 
     useEffect(() => {
         const callData = async () => {
