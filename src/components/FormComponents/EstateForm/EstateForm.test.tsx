@@ -14,7 +14,7 @@ describe("Tests for Estate Form", () => {
         )
 
         expect(wrapper).toBeTruthy()
-        const title = screen.getByText(/Tesst/)
+        const title = screen.getByText(/Tessst/)
 
         expect(title).toBeDefined()
     })
@@ -24,7 +24,7 @@ describe("Tests for Estate Form", () => {
                 <EstateForm formName="Test" />
             </Router>
         )
-        const submitButton = screen.getByText(/Add estate/)
+        const submitButton = screen.getByText(/Add estate test 1/)
 
         expect(submitButton).toBeDefined();
 
