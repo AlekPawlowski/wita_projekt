@@ -1,41 +1,66 @@
 name: Merge and deploy
 
 env:
-  VITE_SUPABASE_KEY: ${{ vars.VITE_SUPABASE_KEY }}
+    VITE_SUPABASE_KEY: ${{ vars.VITE_SUPABASE_KEY }}
 
 on:
-  push:
-    branches: [ "master"]
-  pull_request: 
-    branches: [ "master"]
+    push:
+        branches: ["master"]
+    pull_request:
+        branches: ["master"]
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
+    build:
+        name: Build
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
 
-      - name: Build
-        run: | 
-          npm install
+            - name: Build
+              run: |
+                  npm install
 
-      - name: Test
-        run: |
-          npm run test
+            - name: Test
+              run: |
+                  npm run test
 
-  status_check_on_failure:
-    needs: build
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Check test status
-        if: ${{ needs.build.result == 'failure' }}
-        run: echo "Tests failed!"
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                    node-version: 18
+
+            - name: Build
+              run: |
+                    npm install
+
+            - name: Test
+              run: |
+                npm run test
+
+    status_check_on_failure:
+        needs: [test, build]
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check build staus
+              if: ${{ needs.build.result == 'failure' }}
+              run: echo "Build failed"
+
+            - name: Check build status
+              if: ${{ needs.test.result == 'failure' }}
+              run: echo "Tests failed!"
