@@ -30,7 +30,7 @@ describe("Tests for Estate Form", () => {
 
         await userEvent.click(submitButton)
         // fireEvent.change(input,{target: {value: "dad"}})
-        expect(screen.getByText(/minimum 5 letters/)).toBeDefined()
+        expect(screen.getByText(/minimum 5 letterss/)).toBeDefined()
     })
 
     test("test estate form with test data", async () => {
