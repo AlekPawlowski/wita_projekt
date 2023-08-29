@@ -30,6 +30,15 @@ jobs:
             - name: build code
               run: |
                   npm run build
+    
+    status_build:
+        needs: build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check build staus
+              if: ${{ needs.build.result == 'failure' }}
+              run: echo "Build failed"
 
     test:
         name: Test
@@ -53,7 +62,7 @@ jobs:
                 npm run test
 
     status_check_on_failure:
-        needs: [test, build]
+        needs: [build, test]
         runs-on: ubuntu-latest
 
         steps:
