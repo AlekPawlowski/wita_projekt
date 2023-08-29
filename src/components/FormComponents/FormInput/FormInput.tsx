@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { FormControl, InputGroup, InputLeftAddon, Input, FormErrorMessage } from "@chakra-ui/react";
 import { FieldErrors, FieldValues, Path, UseFormRegister } from "react-hook-form";
 
@@ -19,6 +20,7 @@ export function FormInput<T extends FieldValues>({ inputName: name, label, error
             />
         </InputGroup>
         <FormErrorMessage>
+            {/* @ts-ignore: Suppress all errors on the next line */}
             {errors[name] && errors[name]?.message}
         </FormErrorMessage>
     </FormControl>

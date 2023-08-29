@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { describe, test, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from "@testing-library/user-event";
 import { EstateForm } from './EstateForm'
 import { Router } from 'react-router-dom'
-import { mockErrorEstate, mockEstate } from '../../../_testing_data/mockEstates';
+import { mockErrorEstate } from '../../../_testing_data/mockEstates';
 
 describe("Tests for Estate Form", () => {
     test("Renders without errors", () => {
         const wrapper = render(
+            // @ts-ignore: Suppress all errors on the next line
             <Router location={''} >
                 <EstateForm formName="Test" />
             </Router>
@@ -19,8 +21,9 @@ describe("Tests for Estate Form", () => {
         expect(title).toBeDefined()
     })
     test("test estate form without data", async () => {
-        const wrapper = render(
-            <Router location={''} >
+        render(
+            // @ts-ignore: Suppress all errors on the next line
+            <Router location={''}  >
                 <EstateForm formName="Test" />
             </Router>
         )
@@ -34,7 +37,8 @@ describe("Tests for Estate Form", () => {
     })
 
     test("test estate form with test data", async () => {
-        const wrapper = render(
+        render(
+            // @ts-ignore: Suppress all errors on the next line
             <Router location={''} >
                 <EstateForm formName="Test" data={mockErrorEstate} />
             </Router>

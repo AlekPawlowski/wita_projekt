@@ -4,7 +4,6 @@ import { IFailures } from "../../../interfaces/Ifailures";
 import { useEffect, useState } from "react";
 import { IEstateFailData } from "../../../interfaces/Iestate";
 import { getSingleFailure } from "../../../supabaseCall/failures/getSingleFailure";
-import { getEstateMainInfo } from "../../../supabaseCall/estates/getSingleEstate";
 import { FailureDetailsContent } from "./FailureDetailsContent";
 
 export const FailureDetails = () => {

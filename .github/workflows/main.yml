@@ -23,13 +23,13 @@ jobs:
               with:
                   node-version: 18
 
-            - name: Build
+            - name: Install packages
               run: |
                   npm install
 
-            - name: Test
+            - name: build code
               run: |
-                  npm run test
+                  npm run build
 
     test:
         name: Test
@@ -44,7 +44,7 @@ jobs:
               with:
                     node-version: 18
 
-            - name: Build
+            - name: Install packages
               run: |
                     npm install
 
