@@ -1,0 +1,32 @@
+name: Merge and deploy
+
+env:
+  VITE_SUPABASE_KEY: ${{ vars.VITE_SUPABASE_KEY }}
+
+on:
+  push:
+    branches: [ "master"]
+  pull_request: 
+    branches: [ "master"]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Build
+        run: | 
+          npm install
+
+      - name: Test
+        run: |
+          npm run test
