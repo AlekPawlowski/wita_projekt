@@ -24,7 +24,7 @@ describe("Tests for Estate Form", () => {
                 <EstateForm formName="Test" />
             </Router>
         )
-        const submitButton = screen.getByText(/Add estates/)
+        const submitButton = screen.getByText(/Add estatess/)
 
         expect(submitButton).toBeDefined();
 
