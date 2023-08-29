@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from ".";
-import { IAppUsers } from "../interfaces/IAppusers";
+import { IAppUser } from "../interfaces/IAppusers";
 
 export type ILoggedUser = {
-    user: IAppUsers | null
+    user: IAppUser | null
     isUserLoggedIn: boolean;
 }
 
