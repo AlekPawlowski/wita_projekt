@@ -31,11 +31,11 @@ jobs:
         run: |
           npm run test
 
-  status_check_on_failure:
-    needs: build
-    runs-on: ubuntu-latest
+#   status_check_on_failure:
+#     needs: build
+#     runs-on: ubuntu-latest
     
-    steps:
-      - name: Check test status
-        if: ${{ needs.build.result == 'failure' }}
-        run: echo "Tests failed!"
+#     steps:
+#       - name: Check test status
+#         if: ${{ needs.build.result == 'failure' }}
+#         run: echo "Tests failed!"
