@@ -39,7 +39,7 @@ describe("Tests for Estate Form", () => {
                 <EstateForm formName="Test" data={mockEstate} />
             </Router>
         )
-        const submitButton = screen.getByText(/Edit estate/)
+        const submitButton = screen.getByText(/Edit estatess/)
 
         expect(submitButton).toBeDefined();
 
