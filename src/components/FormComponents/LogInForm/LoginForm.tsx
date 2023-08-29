@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { supabase } from '../../../config';
 import { useDispatch } from "react-redux";
 import { ILoggedUser, logInUser } from '../../../redux/userSlice';
-import { IAppUsers } from '../../../interfaces/IAppusers';
+import { IAppUser } from '../../../interfaces/IAppusers';
 
 export const LogInForm = () => {
     const dispatch = useDispatch();
@@ -51,7 +51,7 @@ export const LogInForm = () => {
             console.log("app user",app_users)
             if (app_users && app_users?.length > 0) {
                 const user: ILoggedUser = {
-                    user: app_users[0] as IAppUsers,
+                    user: app_users[0] as IAppUser,
                     isUserLoggedIn: true,
                 };
                 dispatch(logInUser(user));

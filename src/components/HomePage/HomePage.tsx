@@ -1,11 +1,11 @@
 import { Fragment } from "react"
-import { IAppUsers } from "../../interfaces/IAppusers";
 import { Button, Flex, Heading } from "@chakra-ui/react";
 import { LogOutElement } from "../FormComponents/LogOutForm/LogOutForm";
 import { Link } from "react-router-dom"
+import { IAppUser } from "../../interfaces/IAppusers";
 
 type IHomePage = {
-    user: IAppUsers;
+    user: IAppUser;
 }
 
 export const HomePage = ({ user:{ acces_level, user_name } }: IHomePage) => {
