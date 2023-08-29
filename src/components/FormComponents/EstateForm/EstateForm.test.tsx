@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from "@testing-library/user-event";
 import { EstateForm } from './EstateForm'
 import { Router } from 'react-router-dom'
-import { mockEstate } from '../../../_testing_data/mockEstates';
+import { mockErrorEstate, mockEstate } from '../../../_testing_data/mockEstates';
 
 describe("Tests for Estate Form", () => {
     test("Renders without errors", () => {
@@ -14,7 +14,7 @@ describe("Tests for Estate Form", () => {
         )
 
         expect(wrapper).toBeTruthy()
-        const title = screen.getByText(/Tessst/)
+        const title = screen.getByText(/Test/)
 
         expect(title).toBeDefined()
     })
@@ -24,7 +24,7 @@ describe("Tests for Estate Form", () => {
                 <EstateForm formName="Test" />
             </Router>
         )
-        const submitButton = screen.getByText(/Add estate test 2/)
+        const submitButton = screen.getByText(/Add estate/)
 
         expect(submitButton).toBeDefined();
 
@@ -36,10 +36,10 @@ describe("Tests for Estate Form", () => {
     test("test estate form with test data", async () => {
         const wrapper = render(
             <Router location={''} >
-                <EstateForm formName="Test" data={mockEstate} />
+                <EstateForm formName="Test" data={mockErrorEstate} />
             </Router>
         )
-        const submitButton = screen.getByText(/Edit estates/)
+        const submitButton = screen.getByText(/Edit estate/)
 
         expect(submitButton).toBeDefined();
 
