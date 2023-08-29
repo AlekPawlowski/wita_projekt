@@ -11,30 +11,30 @@ export interface Database {
     Tables: {
       app_users: {
         Row: {
-          acces_level: string | null
+          acces_level: string
           created_at: string | null
           email: string | null
           id: string
           location: string | null
-          phone_number: number | null
+          phone_number: number
           user_name: string | null
         }
         Insert: {
-          acces_level?: string | null
+          acces_level?: string
           created_at?: string | null
           email?: string | null
           id: string
           location?: string | null
-          phone_number?: number | null
+          phone_number?: number
           user_name?: string | null
         }
         Update: {
-          acces_level?: string | null
+          acces_level?: string
           created_at?: string | null
           email?: string | null
           id?: string
           location?: string | null
-          phone_number?: number | null
+          phone_number?: number
           user_name?: string | null
         }
         Relationships: []
