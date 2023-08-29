@@ -17,7 +17,7 @@ export const FailureFormFields: FailureFormFields[] = [
     },
     {
         label: "Estate name",
-        inputName: "estate_name"
+        inputName: "failue_estate_name"
     },
     {
         label: "Estate id",

@@ -34,7 +34,7 @@ export const FailuresForm = ({failureObj, estateData, title}: IFailureForm) => {
             failure_title: isFailureObjKnown ? failureObj.failure_title : "",
             failure_description: isFailureObjKnown ? failureObj.failure_description : "",
             estate_id: estateData.id,
-            estate_name: estateData.name ? estateData.name : "",
+            failue_estate_name: estateData.name ? estateData.name : "",
             status: isFailureObjKnown ? failureObj.status : false,
         },
         resolver: zodResolver(failureSchema)
