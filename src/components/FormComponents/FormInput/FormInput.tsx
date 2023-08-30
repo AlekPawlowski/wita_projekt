@@ -16,6 +16,7 @@ export function FormInput<T extends FieldValues>({ inputName: name, label, error
             <Input
                 id={name}
                 placeholder={name}
+                type="text"
                 {...register(name)}
             />
         </InputGroup>

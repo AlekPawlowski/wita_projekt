@@ -16,6 +16,12 @@ interface IEstateForm {
     formName: string
     data?: IEstate
 }
+
+const parseToNumber=(x:unknown)=>{
+    const parsed=Number(x)
+    return Number.isNaN(x) ? 0 : parsed
+}
+
 /**
  * Estate form to add or change estate data
  * @param formName -> name for the form
@@ -38,24 +44,17 @@ export const EstateForm = ({ formName, data }: IEstateForm) => {
             contract_start_data: isEditMode ? `${data.contract_start_data}` : "",
             door_code: isEditMode ? `${data.door_code}` : "",
             keeper_name: isEditMode ? `${data.keeper_name}` : "",
-            // @ts-ignore: Suppress all errors on the next line
-            keeper_phone_number: isEditMode ? String(data.keeper_phone_number) : 0,
-            // @ts-ignore: Suppress all errors on the next line
-            market_price: isEditMode ? String(data.market_price) : 0,
+            keeper_phone_number: isEditMode ? parseToNumber(data.keeper_phone_number) : 0,
+            market_price: isEditMode ? parseToNumber(data.market_price) : 0,
             name: isEditMode ? `${data.name}` : "",
             owner_name: isEditMode ? `${data.owner_name}` : "",
-            // @ts-ignore: Suppress all errors on the next line
-            owner_phone_number: isEditMode ? String(data.owner_phone_number) : 0,
-            // @ts-ignore: Suppress all errors on the next line
-            revanue: isEditMode ? String(data.revanue) : 0,
-            // @ts-ignore: Suppress all errors on the next line
-            electricity_amount: isEditMode ? String(data.electricity_amount) : 0,
+            owner_phone_number: isEditMode ? parseToNumber(data.owner_phone_number) : 0,
+            revanue: isEditMode ? parseToNumber(data.revanue) : 0,
+            electricity_amount: isEditMode ? parseToNumber(data.electricity_amount) : 0,
             electricity_deadline: isEditMode ? `${data.electricity_deadline}` : "",
-            // @ts-ignore: Suppress all errors on the next line
-            rent_amount: isEditMode ? String(data.rent_amount) : 0,
+            rent_amount: isEditMode ? parseToNumber(data.rent_amount) : 0,
             rent_deadline: isEditMode ? `${data.rent_deadline}` : "",
-            // @ts-ignore: Suppress all errors on the next line
-            tax_amount: isEditMode ? String(data.tax_amount) : 0,
+            tax_amount: isEditMode ? parseToNumber(data.tax_amount) : 0,
             tax_deadline: isEditMode ? `${data.tax_deadline}` : "",
         },
         resolver: zodResolver(addEstateSchema)
