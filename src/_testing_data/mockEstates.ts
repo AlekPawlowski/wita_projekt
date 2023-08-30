@@ -1,7 +1,7 @@
 import { IEstate } from "../interfaces/Iestate";
 
 export const mockEstate: IEstate = {
-    "id": "test id",
+    "id": "test_id",
     "name": "Casa mila",
     "adress": "Zlotu imprezowiczów 3",
     "owner_name": "Andrzej",

@@ -13,6 +13,7 @@ Project goal is to increase my front end skills.
 - fix errors that occurs on default values in EstateForm componet
 ## current questions:
 - Component CreateEstateDetailsData -> how to describe correctly create function to satisfay and check if elements inside was added properly
+- testing -> how to test components like `components/Failures/EditFailures`, specifcly with params, effects and geting data
 
 
 ## Technologies:
