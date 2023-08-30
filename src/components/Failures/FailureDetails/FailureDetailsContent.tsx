@@ -25,7 +25,7 @@ export const FailureDetailsContent = ({ failure, estate }: IFailureDetailsConten
     }
 
     return <Box>
-        <Heading as="h2" size="md" my={MARGIN_SPACE}>Failure details</Heading>
+        <Heading as="h2" size="md" my={MARGIN_SPACE}>Failure details view</Heading>
         <Flex 
             mt={Math.round(MARGIN_SPACE / 2)} 
             gap={GRID_CONFIG.gap}
