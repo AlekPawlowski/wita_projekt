@@ -46,6 +46,7 @@ export const FailuresForm = ({failureObj, estateData, title}: IFailureForm) => {
         }else{
             udpateFailure(failureObj.id, formData);
         }
+        navigate(-1)
     }
 
     return <form onSubmit={handleSubmit(onSubmit)}>

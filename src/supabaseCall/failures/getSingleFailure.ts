@@ -6,7 +6,6 @@ export const getSingleFailure = async (id: string) => {
         .select("*")
         .eq('id', id)
     if(!error){
-        console.log(failures)
         return failures[0];
     }else{
         throw new Error(`There is an error importing singel failure ${error}`)
