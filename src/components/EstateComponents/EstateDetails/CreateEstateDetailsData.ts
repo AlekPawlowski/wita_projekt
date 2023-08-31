@@ -14,8 +14,7 @@ import { IEstate } from "../../../interfaces/Iestate";
  * @r market price -> current market price
  * @returns The function `CreateMainInfo` returns an array of objects of type `IInformationText[]`.
  */
-export const CreateMainInformation = (data: IEstate): IInformationText[] => {
-    const { market_price, keeper_name, owner_name, contract_end_date, avibility, revanue } = data;
+export const CreateMainInformation = ({ market_price, keeper_name, owner_name, contract_end_date, avibility, revanue }: IEstate): IInformationText[] => {
     const mainInfo: IInformationText[] = [
         {
             describe: "Keeper",

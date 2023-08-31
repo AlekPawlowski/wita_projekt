@@ -11,8 +11,8 @@ Project goal is to increase my front end skills.
 - add to ci cd test after every pull request
 - fix error that occurs in FormCheckbox and FormInput components
 - fix errors that occurs on default values in EstateForm componet
+
 ## current questions:
-- Component CreateEstateDetailsData -> how to describe correctly create function to satisfay and check if elements inside was added properly
 - testing -> how to test components like `components/Failures/EditFailures`, specifcly with params, effects and geting data
 - testing -> ``components/formcomponents/FormInput`` -> hot to test them, how to correctly mock data
 - testing -> where is the border between integration an unit test?
