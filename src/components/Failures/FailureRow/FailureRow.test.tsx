@@ -15,7 +15,7 @@ describe('Failure row tests', () => {
     test("Render resolved failure row", () =>{
         // ACT
         const wrapper = render(
-            <BrowserRouter >
+            <BrowserRouter basename="link" >
                 <Table>
                     <Tbody>
                         <FailureRow failureDetails={resolvedData}/>

@@ -21,6 +21,7 @@ export const EditFailures = () => {
                 id: estate_id,
                 name: failue_estate_name
             }
+            console.log("details ", estateDetails)
             setEstateData(estateDetails);
         }
         callData();
