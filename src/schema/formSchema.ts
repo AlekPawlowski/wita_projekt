@@ -1,14 +1,5 @@
 import { z } from "zod";
 
-const refineErrorMessage = "Please provide correct number"
-const minValue = 0.1;
-const errorRefineMessage = {
-    message: refineErrorMessage
-}
-
-const refineFunc = (arg: unknown) => Number(arg) > minValue;
-const transformToNumber = (val: string) => Number(val);
-
 export const logInSchema = z.object({
     email: z.coerce.string().email({ message: "Please provide correct email" }),
     password: z.string().min(5)

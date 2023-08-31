@@ -5,6 +5,7 @@ import { Router } from "react-router-dom";
 import { FAILURE_PARAM_NAME } from "../../../config";
 import { act } from "react-dom/test-utils";
 
+// arrange
 vi.mock('../../../supabaseCall/failures/getSingleFailure', () => {
     const failureMoc = {
         id: "unresolved_fail",
@@ -22,18 +23,20 @@ vi.mock('../../../supabaseCall/failures/getSingleFailure', () => {
 
 describe("test mock api", () => {
     test("should mock api", async () => {
-        let wrapper: RenderResult;
+        // act
         await act(() => {
-            wrapper = render(
+            render(
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 <Router location={`/estates/edit?${FAILURE_PARAM_NAME}=123`}>
                     <EditFailures />
                 </Router>
             )
         })
-
         const title = screen.getByText(/Edit failure/)
         const idInputValue = screen.getByDisplayValue(/Title of unresolved Failure/)
 
+        // assert
         expect(title).toBeTruthy();
         expect(idInputValue).toBeTruthy();
     })
