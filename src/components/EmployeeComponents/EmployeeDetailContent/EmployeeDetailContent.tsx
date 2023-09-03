@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { IEmployeeRow } from "../../../interfaces/Employees/ISingleEmployeeParam"
 import { GRID_CONFIG, MARGIN_SPACE } from "../../../config"
-import { Card, CardBody, CardHeader, Flex, Heading } from "@chakra-ui/react"
+import { Card, CardBody, Flex } from "@chakra-ui/react"
 import { LinkButton } from "../../Common/Buttons/LinkButton"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../redux"
@@ -9,10 +9,10 @@ import { createEmployeeDetailsContent } from "./CreateEmployeeDetailsContent"
 import { InformationBoxWithHeader } from "../../Common/InformationBoxWithHeader/InformationBoxWithHeader"
 import { EstateList } from "../../EstateComponents/EstateList/EstateList"
 
-export const EmployeeDetailContent = ({ empoloyee }: IEmployeeRow) => {
+export const EmployeeDetailContent = ({ employee }: IEmployeeRow) => {
     const state = useSelector((state: RootState) => state.user);
     const { user } = state;
-    const employeeData = createEmployeeDetailsContent(empoloyee)
+    const employeeData = createEmployeeDetailsContent(employee)
     return <Fragment>
         <Flex
             mt={Math.round(MARGIN_SPACE / 2)}
@@ -34,7 +34,7 @@ export const EmployeeDetailContent = ({ empoloyee }: IEmployeeRow) => {
         </Card>
         {
             user?.acces_level == "employee" 
-            ? <EstateList />
+            ? <EstateList employeePhoneNumber=/>
             : null
         }
     </Fragment>

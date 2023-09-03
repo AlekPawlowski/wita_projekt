@@ -1,25 +1,34 @@
 import { useEffect, useState } from "react";
 import { IEstate } from "../../../interfaces/Iestate";
-import { getEstates } from "../../../supabaseCall/estates/getAllEstates";
+import { getAllEmployeeEstates, getEstates } from "../../../supabaseCall/estates/getAllEstates";
 import { EstateRow } from "../EstateRow/EstateRow";
 import { Table, TableContainer, Tbody, Th, Thead, Tr, Heading } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux";
 
-
+interface IEstateList {
+    employeePhoneNumber: number; // id of employee if we wanna get as admin only estates that belongs to specific employee
+}
 // make from this one generic List
-export const EstateList = () => {
+export const EstateList = ({ employeePhoneNumber }: IEstateList) => {
     const [estates, setEstates] = useState<IEstate[] | null>(null);
     const state = useSelector((state: RootState) => state.user);
     const { user } = state;
     useEffect(() => {
-        if (user) {
+        if (user && !employeePhoneNumber) {
             const callEstates = async () => {
                 const { acces_level, phone_number } = user;
                 const estatesList = await getEstates(acces_level, phone_number)
                 setEstates(estatesList);
             }
             callEstates();
+        }
+        if(employeePhoneNumber) {
+            const callEstates = async() => {
+                const estateList = await getAllEmployeeEstates(String(employeePhoneNumber));
+                setEstates(estateList);
+            }
+            callEstates()
         }
     }, []);
 
