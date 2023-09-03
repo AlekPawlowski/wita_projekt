@@ -1,7 +1,8 @@
-import { Box, Heading, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Heading, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import { MARGIN_SPACE } from "../../../config";
 import { IAppUser } from "../../../interfaces/IAppusers"
 import { EmployeeRow } from "../EmployeeRow/EmployeeRow";
+import { LinkButton } from "../../Common/Buttons/LinkButton";
 
 interface IEmployeeList {
     employees: IAppUser[];
@@ -31,5 +32,10 @@ export const EmployeeList = ({employees}: IEmployeeList) => {
                 </Tbody>
             </Table>
         </TableContainer>
+        <Box my={MARGIN_SPACE}>
+            <Button>
+                <LinkButton link="/estates/addEstate">Add Estate Form</LinkButton>
+            </Button>
+        </Box>
     </Box>
 }

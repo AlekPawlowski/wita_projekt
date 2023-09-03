@@ -11,6 +11,8 @@ import { FailuresSite } from "../components/Failures/FailuresSite/FailuresSite"
 import { FailureDetails } from "../components/Failures/FailureDetails/FailureDetails"
 import { EditFailures } from "../components/Failures/EditFailures/EditFailures"
 import { EmployeeDetails } from "../components/EmployeeComponents/EmployeeDetails/EmployeeDetails"
+import { AddEmployee } from "../components/EmployeeComponents/AddEmployee/AddEmployee"
+import { EditEmployee } from "../components/EmployeeComponents/EditEmployee/EditEmployee"
 
 export const RoutesComponent = () => {
     return <Routes>
@@ -30,7 +32,9 @@ export const RoutesComponent = () => {
         {/* employee */}
         <Route path="/employee" element={<EmployeeView />} />
         <Route path="/employee/:id" element={<EmployeeDetails />} />
-
+        <Route path="/employee/add" element={<AddEmployee />} />
+        <Route path="/employee/edit" element={<EditEmployee />} />
+        
         {/* owners */}
         <Route path="/owners" element={<OwnerList />} />
     </Routes>
