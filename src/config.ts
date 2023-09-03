@@ -14,7 +14,9 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 export const ESTATE_PARAM_ID = "estateId";
 export const ESTATE_PARAM_NAME = "estateName";
 export const FAILURE_PARAM_NAME = "failureId";
+export const EMPLOYEE_PARAM_NAME = "employeeId";
 
+// visual configs
 export const GRID_CONFIG = {
     gap: 3, // numerical from chakra
     elementsInRow: "repeat(3, 1fr)" // 3 elements per row by default
