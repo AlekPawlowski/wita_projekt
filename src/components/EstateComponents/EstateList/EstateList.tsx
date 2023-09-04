@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../redux";
 
 interface IEstateList {
-    employeePhoneNumber: number; // id of employee if we wanna get as admin only estates that belongs to specific employee
+    employeePhoneNumber?: number; // id of employee if we wanna get as admin only estates that belongs to specific employee
 }
 // make from this one generic List
 export const EstateList = ({ employeePhoneNumber }: IEstateList) => {

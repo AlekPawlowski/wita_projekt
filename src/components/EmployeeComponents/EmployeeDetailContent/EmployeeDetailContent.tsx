@@ -34,7 +34,7 @@ export const EmployeeDetailContent = ({ employee }: IEmployeeRow) => {
         </Card>
         {
             user?.acces_level == "employee" 
-            ? <EstateList employeePhoneNumber=/>
+            ? <EstateList employeePhoneNumber={user.phone_number}/>
             : null
         }
     </Fragment>

@@ -1,10 +1,8 @@
-import { Fragment, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { IAppUser } from "../../../interfaces/IAppusers";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux";
 import { getEmployees } from "../../../supabaseCall/employee/getEmployees";
-import { Heading } from "@chakra-ui/react";
-import { MARGIN_SPACE } from "../../../config";
 import { EmployeeList } from "../EmployeeList/EmployeeList";
 
 export const EmployeeView = () => {

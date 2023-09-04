@@ -21,7 +21,7 @@ export const EmployeeForm = ({formName, data}: IEmployeeForm) => {
         register,
         handleSubmit,
         formState: {errors, isSubmitting},
-        control
+        // control
     } = useForm<IUserFormSchema>({
         defaultValues: {
             user_name: isEditMode ? `${data.user_name}` : "",
