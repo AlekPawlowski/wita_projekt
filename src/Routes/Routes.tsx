@@ -10,6 +10,8 @@ import { AddFailures } from "../components/Failures/AddFailures/AddFailures"
 import { FailuresSite } from "../components/Failures/FailuresSite/FailuresSite"
 import { FailureDetails } from "../components/Failures/FailureDetails/FailureDetails"
 import { EditFailures } from "../components/Failures/EditFailures/EditFailures"
+import { OwnerMainView } from "../components/OwnersComponents/OwnerMainView/OwnerMainView"
+import { OwnerDetails } from "../components/OwnersComponents/OwnerDetail/OwnerDetails"
 
 export const RoutesComponent = () => {
     return <Routes>
@@ -30,6 +32,7 @@ export const RoutesComponent = () => {
         <Route path="/employee" element={<EmployeeList />} />
 
         {/* owners */}
-        <Route path="/owners" element={<OwnerList />} />
+        <Route path="/owners" element={<OwnerMainView />} />
+        <Route path="/owners/:id" element={<OwnerDetails />} />
     </Routes>
 }
