@@ -5,6 +5,7 @@ export const getSingleEmployee = async (id: string) => {
         .from('app_users')
         .select('*')
         .eq('id', id);
+    
     if (!error) {
         if (app_user.length > 0) return app_user[0]
         return "There is no user with provided id";

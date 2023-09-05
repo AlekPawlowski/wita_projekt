@@ -33,9 +33,7 @@ export const EmployeeList = ({employees}: IEmployeeList) => {
             </Table>
         </TableContainer>
         <Box my={MARGIN_SPACE}>
-            <Button>
-                <LinkButton link="/estates/addEstate">Add Estate Form</LinkButton>
-            </Button>
+            <LinkButton link="/employee/add">Add User form</LinkButton>
         </Box>
     </Box>
 }

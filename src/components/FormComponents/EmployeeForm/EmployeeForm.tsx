@@ -2,8 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { IUserFormSchema, userFormSchema } from "../../../schema/formSchema"
 import { IAppUser } from "../../../interfaces/IAppusers";
-import { Button, Heading, Select } from "@chakra-ui/react";
-import { MARGIN_SPACE } from "../../../config";
+import { Button, Flex, Heading, Select } from "@chakra-ui/react";
+import { GRID_CONFIG, MARGIN_SPACE } from "../../../config";
 import { employeeFormFields } from "../../../formFieldsDetails/EmployeeFormFields";
 import { FormInput } from "../FormInput/FormInput";
 import { useNavigate } from "react-router-dom";
@@ -13,14 +13,14 @@ interface IEmployeeForm {
     data?: IAppUser
 }
 
-export const EmployeeForm = ({formName, data}: IEmployeeForm) => {
+export const EmployeeForm = ({ formName, data }: IEmployeeForm) => {
     const isEditMode = !!data;
     const navigate = useNavigate();
-    
+
     const {
         register,
         handleSubmit,
-        formState: {errors, isSubmitting},
+        formState: { errors, isSubmitting },
         // control
     } = useForm<IUserFormSchema>({
         defaultValues: {
@@ -41,14 +41,14 @@ export const EmployeeForm = ({formName, data}: IEmployeeForm) => {
         <Heading as="h2" size="md" my={MARGIN_SPACE}>{formName}</Heading>
         {
             employeeFormFields.map((field) => {
-                if(field.inputName === "acces_level") {
-                    return <Select {...register("acces_level")} placeholder="Select occupation">
+                if (field.inputName === "acces_level") {
+                    return <Select key={"select"} {...register("acces_level")} placeholder="Select occupation" my={MARGIN_SPACE}>
                         <option value="admin">Administrator</option>
                         <option value="account">Account</option>
                         <option value="employee">Employee</option>
                     </Select>
                 }
-                return <FormInput<IUserFormSchema> 
+                return <FormInput<IUserFormSchema>
                     key={field.label}
                     {...field}
                     errors={errors}
@@ -56,9 +56,15 @@ export const EmployeeForm = ({formName, data}: IEmployeeForm) => {
                 />
             })
         }
-        <Button isLoading={isSubmitting} type="submit">{isEditMode ? "Edit user" : "Add user"}</Button>
-        <Button type="button" onClick={() => navigate(-1)}>
+        <Flex
+            mt={Math.round(MARGIN_SPACE / 2)}
+            gap={GRID_CONFIG.gap}
+        >
+
+            <Button isLoading={isSubmitting} type="submit">{isEditMode ? "Edit user" : "Add user"}</Button>
+            <Button type="button" onClick={() => navigate(-1)}>
                 Cancel
-        </Button>
+            </Button>
+        </Flex>
     </form>
 }
