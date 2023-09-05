@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { IOwners } from "../../../interfaces/Iowners"
 import { getOwners } from "../../../supabaseCall/owners/getOwners"
 import { TableContainer, Table, Thead, Tr, Th, Tbody } from "@chakra-ui/react"

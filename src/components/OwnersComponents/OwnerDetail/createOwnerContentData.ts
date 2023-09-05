@@ -1,4 +1,3 @@
-import { describe } from "vitest";
 import { IInformationText } from "../../../interfaces/IInformationText/IInformationText";
 import { IOwners } from "../../../interfaces/Iowners";
 
