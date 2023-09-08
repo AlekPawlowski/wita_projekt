@@ -11,7 +11,7 @@ export const OwnerMainView = () => {
         </Heading>
         <OwnerList />
         <Box my={MARGIN_SPACE}>
-            <LinkButton link={'path to form'}>
+            <LinkButton link={'/owners/add'}>
                 Add Owner Form
             </LinkButton>
         </Box>

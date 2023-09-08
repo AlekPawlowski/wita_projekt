@@ -17,7 +17,7 @@ interface IEstateForm {
     data?: IEstate
 }
 
-const parseToNumber=(x:unknown)=>{
+export const parseToNumber=(x:unknown)=>{
     const parsed=Number(x)
     return Number.isNaN(x) ? 0 : parsed
 }

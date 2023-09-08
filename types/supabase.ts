@@ -25,7 +25,7 @@ export interface Database {
           email?: string | null
           id: string
           location?: string | null
-          phone_number?: number
+          phone_number: number
           user_name?: string | null
         }
         Update: {
@@ -146,19 +146,19 @@ export interface Database {
           created_at: string | null
           id: string
           name: string | null
-          phone_number: number | null
+          phone_number: number
         }
         Insert: {
           created_at?: string | null
           id?: string
           name?: string | null
-          phone_number?: number | null
+          phone_number: number
         }
         Update: {
           created_at?: string | null
           id?: string
           name?: string | null
-          phone_number?: number | null
+          phone_number?: number
         }
         Relationships: []
       }

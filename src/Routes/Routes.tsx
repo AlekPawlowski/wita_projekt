@@ -11,6 +11,8 @@ import { FailureDetails } from "../components/Failures/FailureDetails/FailureDet
 import { EditFailures } from "../components/Failures/EditFailures/EditFailures"
 import { OwnerMainView } from "../components/OwnersComponents/OwnerMainView/OwnerMainView"
 import { OwnerDetails } from "../components/OwnersComponents/OwnerDetail/OwnerDetails"
+import { AddNewOwner } from "../components/OwnersComponents/AddNewOwner/AddNewOwner"
+import { EditOwenr } from "../components/OwnersComponents/EditOwner/EditOwner"
 
 export const RoutesComponent = () => {
     return <Routes>
@@ -33,5 +35,7 @@ export const RoutesComponent = () => {
         {/* owners */}
         <Route path="/owners" element={<OwnerMainView />} />
         <Route path="/owners/:id" element={<OwnerDetails />} />
+        <Route path="/owners/add" element={<AddNewOwner />} />
+        <Route path="/owners/edit" element={<EditOwenr />} />
     </Routes>
 }
