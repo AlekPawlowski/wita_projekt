@@ -8,6 +8,8 @@ import { MARGIN_SPACE } from "../../../config";
 import { Button, Flex, Heading } from "@chakra-ui/react";
 import { ownersFormFields } from "../../../formFieldsDetails/OwnersFormFields";
 import { FormInput } from "../FormInput/FormInput";
+import { createNewOwner } from "../../../supabaseCall/owners/createNewOwner";
+import { updateOwner } from "../../../supabaseCall/owners/updateOwner";
 
 interface IOwnerForm {
     formName: string;
@@ -32,10 +34,12 @@ export const OwnerForm = ({ ownerData, formName }: IOwnerForm) => {
         console.log(formData);
         if (!isEditMode) {
             // create new owner element
+            await createNewOwner(formData);
         } else {
             // update owner data
+            await updateOwner(String(ownerData.phone_number), formData);
         }
-        navigate(-1)
+        // navigate('/owners');
     }
     return <form onSubmit={handleSubmit(onSubmit)}>
         <Heading as="h1" size="md" my={MARGIN_SPACE}>{formName}</Heading>
@@ -50,8 +54,7 @@ export const OwnerForm = ({ ownerData, formName }: IOwnerForm) => {
             })
         }
         <Flex align="center" justify="space-around">
-            <Button isLoading={isSubmitting} type="submit">{isEditMode ? "Edit estate" : "Add estate"}</Button>
-            {/* <Button isLoading={isSubmitting} type="submit"  >Add estate</Button> */}
+            <Button isLoading={isSubmitting} type="submit">{isEditMode ? "Edit owner" : "Add owner"}</Button>
             <Button type="button" onClick={() => navigate(-1)}>
                 Cancel
             </Button>
