@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react"
-import { Link, useNavigate, useSearchParams } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { GRID_CONFIG, MARGIN_SPACE, OWNER_PARAM_NAME } from "../../../config";
 import { IOwners } from "../../../interfaces/Iowners";
 import { getSingleOwner } from "../../../supabaseCall/owners/getSingleOwner";
@@ -7,6 +7,7 @@ import { createOwnerData } from "./createOwnerContentData";
 import { Box, Button, Divider, Flex, Heading } from "@chakra-ui/react";
 import { InformationBoxWithHeader } from "../../Common/InformationBoxWithHeader/InformationBoxWithHeader";
 import { LinkButton } from "../../Common/Buttons/LinkButton";
+import { EstateList } from "../../EstateComponents/EstateList/EstateList";
 
 export const OwnerDetails = () => {
     const navigate = useNavigate();
@@ -37,5 +38,6 @@ export const OwnerDetails = () => {
         <Divider my={MARGIN_SPACE}/>
         <Heading size="md" my={MARGIN_SPACE}>Owner estates list</Heading>
         {/* list of owner estates */}
+        <EstateList paramName="owner_phone_number" paramValue={owner.phone_number}/>
     </Fragment>
 }

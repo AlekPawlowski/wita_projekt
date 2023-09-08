@@ -39,7 +39,7 @@ export const EmployeeDetailContent = ({ employee }: IEmployeeRow) => {
                 ? <Fragment>
                     <Divider my={MARGIN_SPACE} />
                     <Heading as="h2" size={"md"} my={MARGIN_SPACE}>Employee estate list</Heading>
-                    <EstateList employeePhoneNumber={employee.phone_number} />
+                    <EstateList paramValue={employee.phone_number} paramName="keeper_phone_number"/>
                 </Fragment>
                 : null
         }

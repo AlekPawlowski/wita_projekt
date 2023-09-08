@@ -1,6 +1,5 @@
-import { Fragment } from "react"
 import { Button, Flex, Heading } from "@chakra-ui/react";
-import { LogOutElement } from "../FormComponents/LogOutForm/LogOutForm";
+import { Fragment } from "react"
 import { Link } from "react-router-dom"
 import { IAppUser } from "../../interfaces/IAppusers";
 
@@ -18,7 +17,6 @@ export const HomePage = ({ user:{ acces_level, user_name } }: IHomePage) => {
                     as="h1"
                     size="sm"
                 >Hello {user_name}, your current acces level is: {acces_level}</Heading>
-                <LogOutElement />
             </Flex>
             <Flex gap="10" align="center">
                 {/* List of all estates link -> all */}
