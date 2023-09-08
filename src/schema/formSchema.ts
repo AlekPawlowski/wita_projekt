@@ -21,7 +21,7 @@ export const addEstateSchema = z.object({
     keeper_phone_number: z.preprocess((val) => Number(val), z.number().gte(100000000).lte(9999999999999)),
     market_price: z.preprocess((val) => Number(val), z.number().positive()),
     // market_price: z.string().refine(refineFunc, errorRefineMessage).transform(transformToNumber),
-    name: z.string().min(2, { message: "Estate must be named, min 2 letters"}),
+    name: z.string().min(2, { message: "Estate must be named, min 2 letters" }),
     owner_name: z.string().min(3, { message: "Provide correct name" }),
     // owner_phone_number: z.string().min(9).max(14).refine(refineFunc, errorRefineMessage).transform(transformToNumber),
     owner_phone_number: z.preprocess((val) => Number(val), z.number().gte(100000000).lte(9999999999999)),
@@ -59,3 +59,12 @@ export const ownersSchema = z.object({
 })
 
 export type IOwnersSchema = z.infer<typeof ownersSchema>
+export const userFormSchema = z.object({
+    user_name: z.string(),
+    acces_level: z.string(),
+    email: z.string().email({message: "Please provide correct email"}),
+    location: z.string(),
+    phone_number: z.preprocess((val) => Number(val), z.number()),
+});
+
+export type IUserFormSchema = z.infer<typeof userFormSchema>

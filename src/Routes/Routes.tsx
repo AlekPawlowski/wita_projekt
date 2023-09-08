@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { StartPage } from "../components/StartPage/StartPage"
 import { EstateMainView } from "../components/EstateComponents/EstateMainView/EstateMainView"
-import { EmployeeList } from "../components/Employee/EmployeeList"
+import { EmployeeView } from "../components/EmployeeComponents/EmployeeView/EmployeeView"
 import { EstateDetails } from "../components/EstateComponents/EstateDetails/EstateDetails"
 import { AddEstate } from "../components/EstateComponents/AddEstateComponent/AddEstate"
 import { EditEstate } from "../components/EstateComponents/EditEstateComponent/EditEstate"
@@ -13,6 +13,9 @@ import { OwnerMainView } from "../components/OwnersComponents/OwnerMainView/Owne
 import { OwnerDetails } from "../components/OwnersComponents/OwnerDetail/OwnerDetails"
 import { AddNewOwner } from "../components/OwnersComponents/AddNewOwner/AddNewOwner"
 import { EditOwenr } from "../components/OwnersComponents/EditOwner/EditOwner"
+import { EmployeeDetails } from "../components/EmployeeComponents/EmployeeDetails/EmployeeDetails"
+import { AddEmployee } from "../components/EmployeeComponents/AddEmployee/AddEmployee"
+import { EditEmployee } from "../components/EmployeeComponents/EditEmployee/EditEmployee"
 
 export const RoutesComponent = () => {
     return <Routes>
@@ -30,8 +33,11 @@ export const RoutesComponent = () => {
         <Route path="/failure/:id" element={<FailureDetails />} />
 
         {/* employee */}
-        <Route path="/employee" element={<EmployeeList />} />
-
+        <Route path="/employee" element={<EmployeeView />} />
+        <Route path="/employee/:id" element={<EmployeeDetails />} />
+        <Route path="/employee/add" element={<AddEmployee />} />
+        <Route path="/employee/edit" element={<EditEmployee />} />
+        
         {/* owners */}
         <Route path="/owners" element={<OwnerMainView />} />
         <Route path="/owners/:id" element={<OwnerDetails />} />
