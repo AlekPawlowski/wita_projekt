@@ -34,7 +34,7 @@ export const OwnerForm = ({ ownerData, formName }: IOwnerForm) => {
         console.log(formData);
         if (!isEditMode) {
             // create new owner element
-            await createNewOwner(formData);
+            await createNewOwner(formData, true);
         } else {
             // update owner data
             await updateOwner(String(ownerData.phone_number), formData);

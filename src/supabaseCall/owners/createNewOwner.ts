@@ -21,8 +21,10 @@ export const addNewOnwer = async (dataToAdd: IOwnersSchema) => {
 }
 /**
  * first function check if provided phone number exist in db, if not, then create record, else give user info that user exist
+ * @param dataToAdd -> data of the new owner
+ * @param tellIfExist -> if set as true, then show alert box if user already exist, otherwise only show in console, it is set that way to use this function both in owner form and estate form, but we want to set error message only in owner form
  */
-export const createNewOwner = async (dataToAdd: IOwnersSchema) => {
+export const createNewOwner = async (dataToAdd: IOwnersSchema, tellIfExist = false) => {
     
     const { data: owners } = await supabase
     .from('owners')
@@ -32,6 +34,10 @@ export const createNewOwner = async (dataToAdd: IOwnersSchema) => {
     if (owners?.length == 0) {
         addNewOnwer(dataToAdd);
     }else{
-        alert('Prived phone number was already added, check again owner phone number');
+        if(tellIfExist){
+            alert('Prived phone number was already added, check again owner phone number');
+        }else{
+            console.log("there is no need to add new element");
+        }
     }
 }

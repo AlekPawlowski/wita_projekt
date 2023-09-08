@@ -1,5 +1,6 @@
 import { supabase } from "../../config"
 import { IAddEstateSchema } from "../../schema/formSchema"
+import { createNewOwner } from "../owners/createNewOwner"
 
 export const createNewEstate = async (dataToAdd: IAddEstateSchema) => {
     /**
@@ -34,6 +35,14 @@ export const createNewEstate = async (dataToAdd: IAddEstateSchema) => {
             throw new Error(`erorr in push to db ${error}`)
         }
         console.log(newEstate);
+        // check if owner exist, if not, create new one
+        const { owner_name, owner_phone_number } = dataToAdd;
+        createNewOwner(
+            {
+                name: owner_name,
+                phone_number: owner_phone_number
+            }
+        )
         alert("Correctly added to datebase");
     }
 }
