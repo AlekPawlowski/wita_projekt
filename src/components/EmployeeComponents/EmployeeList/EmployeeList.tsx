@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Heading, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import { MARGIN_SPACE } from "../../../config";
 import { IAppUser } from "../../../interfaces/IAppusers"
 import { EmployeeRow } from "../EmployeeRow/EmployeeRow";
