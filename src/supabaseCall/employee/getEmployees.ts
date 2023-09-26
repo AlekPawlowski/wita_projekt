@@ -4,7 +4,7 @@ export const getAllUsers = async () => {
     const { data: appUsers, error } = await supabase
         .from('app_users')
         .select('*')
-    if(error){
+    if(!error){
         return appUsers;
     }else {
         throw new Error(`Error in geting all users: ${error}`);

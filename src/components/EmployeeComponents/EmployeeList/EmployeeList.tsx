@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Heading, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import { MARGIN_SPACE } from "../../../config";
 import { IAppUser } from "../../../interfaces/IAppusers"
 import { EmployeeRow } from "../EmployeeRow/EmployeeRow";
@@ -33,9 +33,7 @@ export const EmployeeList = ({employees}: IEmployeeList) => {
             </Table>
         </TableContainer>
         <Box my={MARGIN_SPACE}>
-            <Button>
-                <LinkButton link="/estates/addEstate">Add Estate Form</LinkButton>
-            </Button>
+            <LinkButton link="/employee/add">Add User form</LinkButton>
         </Box>
     </Box>
 }

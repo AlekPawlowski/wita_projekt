@@ -49,6 +49,16 @@ export const failureSchema = z.object({
 
 export type IFailureSchema = z.infer<typeof failureSchema>
 
+/**
+ * based on interface
+ * @interface IOwners
+ */
+export const ownersSchema = z.object({
+    name: z.string().min(3),
+    phone_number: z.preprocess((val) => Number(val), z.number().gte(100000000, {message: "Minumum 9 digits"}).lte(9999999999999, {message: "Maximum 13 digits"})),
+})
+
+export type IOwnersSchema = z.infer<typeof ownersSchema>
 export const userFormSchema = z.object({
     user_name: z.string(),
     acces_level: z.string(),

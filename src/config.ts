@@ -14,6 +14,7 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 export const ESTATE_PARAM_ID = "estateId";
 export const ESTATE_PARAM_NAME = "estateName";
 export const FAILURE_PARAM_NAME = "failureId";
+export const OWNER_PARAM_NAME = "ownerPhoneNumber";
 export const EMPLOYEE_PARAM_NAME = "employeeId";
 
 // visual configs

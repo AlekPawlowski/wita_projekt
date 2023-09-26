@@ -1,4 +1,5 @@
 import { supabase } from "../../config";
+import { IEstate } from "../../interfaces/Iestate";
 
 /**
  * Get all estates from db and return them, if error then render error in console
@@ -15,17 +16,17 @@ export const getAllEstates = async () => {
     }
 };
 /**
- * call to database to get all estates that belongs to the employee
+ * call to database to get all estates that belongs to the provided param
  */
-export const getAllEmployeeEstates = async (keeperPhoneNumber: string) => {
+export const getAllEstatesByParam = async (paramName: keyof IEstate, paramValue: string) => {
     const {data: filteredEstates, error} = await supabase
             .from("estate")
             .select('*')
-            .eq('keeper_phone_number', keeperPhoneNumber)
+            .eq(paramName, paramValue)
     if(!error){
         return filteredEstates
     }else{
-        throw new Error(`Error in getting estates for employee ${keeperPhoneNumber} - ${error}`)
+        throw new Error(`Error in getting estates for ${paramName} with value ${paramValue} - ${error}`)
     }
 }
 
@@ -38,7 +39,8 @@ export const getAllEmployeeEstates = async (keeperPhoneNumber: string) => {
 export const getEstates = async (accesLevel: string, phoneNumber: number) => {
     console.log(`Getting ${accesLevel}`)
     if(accesLevel == "employee"){
-        return getAllEmployeeEstates(String(phoneNumber))
+        // get employees
+        return getAllEstatesByParam("keeper_phone_number", String(phoneNumber))
     }
     return getAllEstates()
 }

@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import { IEmployeeRow } from "../../../interfaces/Employees/ISingleEmployeeParam"
-import { GRID_CONFIG, MARGIN_SPACE } from "../../../config"
-import { Card, CardBody, Flex } from "@chakra-ui/react"
+import { EMPLOYEE_PARAM_NAME, GRID_CONFIG, MARGIN_SPACE } from "../../../config"
+import { Card, CardBody, Divider, Flex, Heading } from "@chakra-ui/react"
 import { LinkButton } from "../../Common/Buttons/LinkButton"
 import { useSelector } from "react-redux"
 import { RootState } from "../../../redux"
@@ -17,10 +17,11 @@ export const EmployeeDetailContent = ({ employee }: IEmployeeRow) => {
         <Flex
             mt={Math.round(MARGIN_SPACE / 2)}
             gap={GRID_CONFIG.gap}
+            my={MARGIN_SPACE}
         >
             {
                 user?.acces_level == "admin"
-                    ? <LinkButton link={`#`}>Edit user</LinkButton>
+                    ? <LinkButton link={`/employee/edit?${EMPLOYEE_PARAM_NAME}=${employee.id}`}>Edit user</LinkButton>
                     : null
             }
         </Flex>
@@ -32,10 +33,15 @@ export const EmployeeDetailContent = ({ employee }: IEmployeeRow) => {
                 />
             </CardBody>
         </Card>
+
         {
-            user?.acces_level == "employee" 
-            ? <EstateList employeePhoneNumber={user.phone_number}/>
-            : null
+            employee.acces_level == "employee"
+                ? <Fragment>
+                    <Divider my={MARGIN_SPACE} />
+                    <Heading as="h2" size={"md"} my={MARGIN_SPACE}>Employee estate list</Heading>
+                    <EstateList paramValue={employee.phone_number} paramName="keeper_phone_number"/>
+                </Fragment>
+                : null
         }
     </Fragment>
 }

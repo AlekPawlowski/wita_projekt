@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom"
 import { StartPage } from "../components/StartPage/StartPage"
 import { EstateMainView } from "../components/EstateComponents/EstateMainView/EstateMainView"
 import { EmployeeView } from "../components/EmployeeComponents/EmployeeView/EmployeeView"
-import { OwnerList } from "../components/Owners/OwnersList"
 import { EstateDetails } from "../components/EstateComponents/EstateDetails/EstateDetails"
 import { AddEstate } from "../components/EstateComponents/AddEstateComponent/AddEstate"
 import { EditEstate } from "../components/EstateComponents/EditEstateComponent/EditEstate"
@@ -10,6 +9,10 @@ import { AddFailures } from "../components/Failures/AddFailures/AddFailures"
 import { FailuresSite } from "../components/Failures/FailuresSite/FailuresSite"
 import { FailureDetails } from "../components/Failures/FailureDetails/FailureDetails"
 import { EditFailures } from "../components/Failures/EditFailures/EditFailures"
+import { OwnerMainView } from "../components/OwnersComponents/OwnerMainView/OwnerMainView"
+import { OwnerDetails } from "../components/OwnersComponents/OwnerDetail/OwnerDetails"
+import { AddNewOwner } from "../components/OwnersComponents/AddNewOwner/AddNewOwner"
+import { EditOwenr } from "../components/OwnersComponents/EditOwner/EditOwner"
 import { EmployeeDetails } from "../components/EmployeeComponents/EmployeeDetails/EmployeeDetails"
 import { AddEmployee } from "../components/EmployeeComponents/AddEmployee/AddEmployee"
 import { EditEmployee } from "../components/EmployeeComponents/EditEmployee/EditEmployee"
@@ -36,6 +39,9 @@ export const RoutesComponent = () => {
         <Route path="/employee/edit" element={<EditEmployee />} />
         
         {/* owners */}
-        <Route path="/owners" element={<OwnerList />} />
+        <Route path="/owners" element={<OwnerMainView />} />
+        <Route path="/owners/:id" element={<OwnerDetails />} />
+        <Route path="/owners/add" element={<AddNewOwner />} />
+        <Route path="/owners/edit" element={<EditOwenr />} />
     </Routes>
 }
